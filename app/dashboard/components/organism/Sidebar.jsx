@@ -24,7 +24,7 @@ export default function Sidebar() {
             </div>
             <div className="dash_profile_user">
               <h4>Utente</h4> 
-               <p>{user.name}</p>
+              <p>{user?.name || 'Caricamento...'}</p>
             </div>
          </div>
       </div>

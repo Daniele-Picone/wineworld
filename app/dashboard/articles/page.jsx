@@ -35,19 +35,16 @@ export default function PostForm() {
     }
 
     try {
-      // 1️⃣ Ottieni token utente dal client
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
       if (!token) throw new Error('Utente non autenticato');
 
-      // 2️⃣ Prepara formData
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content);
       formData.append('category', category);
       formData.append('image', image);
 
-      // 3️⃣ Chiamata API
       const res = await fetch('/api/posts', {
         method: 'POST',
         body: formData,
@@ -74,6 +71,7 @@ export default function PostForm() {
     }
   };
 
+  // ✅ Controllo user PRIMA di tutto
   if (!user) {
     return (
       <DashboardLayout>
