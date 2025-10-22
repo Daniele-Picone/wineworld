@@ -1,11 +1,12 @@
 
 'use client';
 import { useState, useEffect } from "react";
+import { useUser } from "@/app/context/UserContext";
 import DashboardLayout from "../components/layout/dashboardLayout";
 import './page.css';
 export default function UsersPage() {
+ const { user } = useUser();
   const [users, setUsers] = useState([]);
-    const { user } = useUser();
   const [loading, setLoading] = useState(true);
 
   // Fetch utenti
