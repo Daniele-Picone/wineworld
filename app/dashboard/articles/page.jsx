@@ -74,6 +74,14 @@ export default function PostForm() {
     }
   };
 
+  if (!user) {
+    return (
+      <DashboardLayout>
+        <p>Caricamento utente...</p>
+      </DashboardLayout>
+    );
+  }
+
   return (
     <DashboardLayout>
       <div className="post-form-container">
