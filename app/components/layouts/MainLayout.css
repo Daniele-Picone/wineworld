@@ -1,0 +1,6 @@
+@import '../../globals.css';
+
+.main_layout{
+    min-height: 100vh;
+    height: auto;
+   }

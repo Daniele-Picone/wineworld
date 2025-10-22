@@ -1,0 +1,42 @@
+@import '../../globals.css';
+
+.header {
+  background-color: var(--background-primary);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 3px solid var(--color-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo h1 {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 900;
+}
+
+/* Responsive: tablet */
+@media (max-width: 900px) {
+  .header {
+    padding: 0 20px;
+    height: 100px;
+    gap: 10px;
+  }
+
+  .logo h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+/* Responsive: mobile piccolo */
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.6rem;
+  }
+}

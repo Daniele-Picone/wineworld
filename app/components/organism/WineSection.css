@@ -1,0 +1,113 @@
+@import '../../globals.css';
+
+.wine_section {
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Introduzione vino: immagine + testo */
+.wine_intro {
+    display: flex;
+    flex-direction: column; /* mobile first */
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Immagine */
+.wine_intro_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.wine_intro_img img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 30px;
+}
+
+/* Contenuto testuale */
+.wine_intro_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centro testo su mobile */
+    text-align: center;
+}
+
+.wine_intro_content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--background-primary);
+}
+
+.wine_intro_content p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 15px;
+    max-width: 600px;
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) {
+    .wine_intro {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 60px;
+    }
+   
+    .wine_intro_img {
+        width: 50%;
+    }
+
+    .wine_intro_img img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .wine_intro_content {
+        width: 50%;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .wine_intro_content h2 {
+        font-size: 2.5rem;
+    }
+
+    .wine_intro_content p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .wine_section {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .wine_intro{
+        gap: 300px;
+          
+    }
+ 
+    .wine_intro_content h2 {
+        font-size: 3rem;
+    }
+
+    .wine_intro_content p {
+        font-size: 1.5rem;
+    }
+
+    .wine_intro_img img {
+        max-width: 400px;
+    }
+}

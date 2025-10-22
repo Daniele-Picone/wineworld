@@ -1,0 +1,65 @@
+
+@import '../../globals.css';
+
+
+.user_controller {
+  width: 80%;
+  height: 100vh;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.user_controller h1{
+    font-size: 3rem;
+    color: var(--background-primary);
+    font-weight: 700;
+}
+.user_table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.user_table th,
+.user_table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user_table th {
+  background-color: var(--color-primary); /* viola */
+  color: white;
+  font-weight: 600;
+}
+
+.user_table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.user_table tr:hover {
+  background-color: #e0e0ff;
+}
+.user_date{
+ font-size: 1.2rem;
+ text-transform: uppercase;
+}
+
+.user_table button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.user_table button:hover {
+  background-color: #dc2626;
+}
