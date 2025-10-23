@@ -3,5 +3,49 @@
 
 .dashboard{
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--background-secondary);
+}
+.dash_title{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dash_content{
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+
+}
+
+.new_users, .new_post_wine, .new_post_wineword, .new_post_blog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+
+@media screen and (min-width: 370px) and (max-width: 800px) {
+
+    .dash_content{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       max-width: 90%;
+    }
     
 }

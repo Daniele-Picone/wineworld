@@ -77,3 +77,12 @@
 .back-btn:hover {
   background-color: #a00000;
 }
+
+
+@media screen and (min-width: 370px) {
+  .wine-detail{
+    
+    height:auto ;
+  } 
+  
+}

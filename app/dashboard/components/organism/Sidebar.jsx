@@ -44,12 +44,6 @@ export default function Sidebar() {
           <Link href="/dashboard/articles">Aggiungi Post</Link>
 
         </li>
-        <li >
-          <Link href="/dashboard/conigli">Blog</Link>
-        </li>
-        <li>
-          <Link href="/dashboard">Aggiungi post vini</Link>
-        </li>
       </ul>
         </div>
       <div className="webLink">
@@ -66,9 +60,6 @@ export default function Sidebar() {
         </li>
         <li >
           <Link href="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link href="/dashboard">Aggiungi post vini</Link>
         </li>
       </ul>
       </div>

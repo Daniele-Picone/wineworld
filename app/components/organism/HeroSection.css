@@ -13,7 +13,7 @@
 .intro_section {
     display: flex;
     flex-direction: column; /* mobile first */
-    margin-top: 80px;
+    margin-top: 60px;
     width: 100%;
     gap: 40px;
     justify-content: center;
@@ -89,16 +89,16 @@
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
     .intro_section {
-        margin-top: 160px;
+        margin-top: 50px;
         gap: 300px;
     }
 
     .intro_content h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .intro_content p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .intro_img img {

@@ -1,4 +1,6 @@
+import { supabase } from "@/lib/db";
 import { createClient } from "@supabase/supabase-js";
+import { NextResponse } from "next/server";
 
 // Client server Supabase con SERVICE_ROLE_KEY
 const supabaseServer = createClient(
@@ -107,5 +109,32 @@ export async function GET(req) {
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const postId = searchParams.get("id");
+
+    if (!postId) {
+      return NextResponse.json({ error: "ID post mancante" }, { status: 400 });
+    }
+
+    // Supabase delete
+    const { error } = await supabase
+      .from("posts")
+      .delete()
+      .eq("id", postId);
+
+    if (error) {
+      console.error("Errore eliminazione Post:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ message: "Post eliminato con successo" });
+  } catch (err) {
+    console.error("Errore server:", err);
+    return NextResponse.json({ error: "Errore server" }, { status: 500 });
   }
 }
