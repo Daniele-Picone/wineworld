@@ -3,14 +3,22 @@
 
 
 
-
-.dashboard-layout{
-    display: flex;
+.container{
+  display: grid;
+  width: 96%;
+  margin: 0 ;
+  gap: 1.8rem;
+  grid-template-columns: 12rem auto ;
 }
 
 
-.dashboard-content{
-    height: 100vh;
-    width: 100%;
 
+@media (max-width: 480px){
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 70%;
+        padding: 0;
+    }
 }

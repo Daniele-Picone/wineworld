@@ -10,68 +10,31 @@ import { useUser } from "@/app/context/UserContext";
 
 export default function Sidebar() {
   const { user, logout } = useUser();
-   const handleLogout = () => {
-     logout();          
-     router.push("/");  
-   };
+  const handleLogout = () => {
+      logout();          
+      router.push("/");  
+    };
   return (
-    <div className="sidebar">
-      <div className="dash_start">
-         <h2 >DashBoard </h2>
-         <div className="dash_profile">
-            <div className="dash_profile_img">
-                <img src="/loginimg.jpg" alt="" />
-            </div>
-            <div className="dash_profile_user">
-              <h4>Utente</h4> 
-              <p>{user?.name || 'Caricamento...'}</p>
-            </div>
-         </div>
-      </div>
     
-    <div className="dash_links">
-        <div className="admin_links">
-            <h3 className='links_title' >Links Amministrativi</h3>
-          <ul className='dashboard_links_list' >
-         <li>
-          <Link href="/dashboard">Home</Link>
-        </li>
-        <li>
-         <Link href="/dashboard/users">Users</Link>
-
-        </li>
-        <li>
-          <Link href="/dashboard/articles">Aggiungi Post</Link>
-
-        </li>
-      </ul>
+      <aside>
+        <div className="logo">
+           <h1> WineWorld </h1>
         </div>
-      <div className="webLink">
-              <h3  className='links_title' >Links navigazione Sito</h3>
-             <ul className='dashboard_links_list' >
-         <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/wine"  >Vini</Link>
-        </li>
-        <li>
-          <Link href="/wineworld">Il Mondo del Vino</Link>
-        </li>
-        <li >
-          <Link href="/blog">Blog</Link>
-        </li>
-      </ul>
-      </div>
-    </div>
-
+        <div className="sidebar">
+            <Link href="/dashboard" ><h3>Dashboard</h3> </Link>
+            <Link href="/dashboard/users" ><h3>Users</h3></Link>
+            <Link href="/dashboard/articles" ><h3>Scrivi Articolo</h3></Link>
+            <Link href="/dashboard/users" ><h3>Scrivi Blog</h3></Link>
+            <Link href="/dashboard/users" ><h3>History</h3></Link>
+            <Link href="/dashboard/users" ><h3>Analistics</h3></Link>
+            <Link href="/dashboard/users" ><h3>Tikets</h3></Link>
+        <div className="dash_logout">
+          <button onClick={handleLogout} className='logoutbtn'>Logout</button>
+        </div>
+        </div>
+          
+      </aside>
     
-        <button
-        onClick={handleLogout}
-        className='logoutbtn'>
-        Logout
-      </button>
-    </div>
   );
 }
 

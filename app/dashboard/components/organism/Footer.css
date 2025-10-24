@@ -1,8 +1,0 @@
-@import '../../../globals.css';
-
-footer{
-    background-color: var(--background-primary);
-    height: 100px;
-    padding: 30px;
-    border-top: 3px solid var(--color-primary);
-}

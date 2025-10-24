@@ -1,0 +1,69 @@
+@import '../../../globals.css';
+
+
+.chart_container{
+    background-color: var(--color-secondary) ;
+    height: 7rem;
+    width: 24rem ;
+    padding: 0.8rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.info{
+    width: 100%;
+    height: 100%;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info_left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info h3{
+    font-size: 1.5rem;
+    color: var(--background-primary);
+    font-weight: 700;
+}
+.info h2{
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.info_right ul li{
+    font-size: 1.3rem;
+    color: var(--color-primary);
+
+}
+
+@media (max-width: 480px){
+    .chart_container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 70%;
+        padding: 0;
+    }
+   .info h3{
+    font-size: 0.8rem;
+    color: var(--background-primary);
+    font-weight: 700;
+}
+.info h2{
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.info_right ul li{
+    font-size: 0.8rem;
+    color: var(--color-primary);
+
+}
+}
