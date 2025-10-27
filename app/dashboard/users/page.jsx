@@ -5,6 +5,7 @@ import { useUser } from "@/app/context/UserContext";
 import DashboardLayout from "../components/layout/dashboardLayout";
 import DataTable from "../components/molecules/DataTable";
 import './page.css';
+import Loader from "@/app/components/molecules/Loader";
 
 export default function UsersPage() {
   const { user } = useUser();
@@ -53,18 +54,12 @@ export default function UsersPage() {
   if (!user) {
     return (
       <DashboardLayout>
-        <div>Caricamento utente...</div>
+        <Loader/>
       </DashboardLayout>
     );
   }
 
-  if (loading) {
-    return (
-      <DashboardLayout>
-        <p>Caricamento lista utenti...</p>
-      </DashboardLayout>
-    );
-  }
+
 
   const userColumns = [
     { key: "id", label: "ID" },
@@ -77,11 +72,15 @@ export default function UsersPage() {
     { label: 'Elimina', text: 'Elimina', onClick: (user) => deleteUser(user.id), className: 'btn-delete' }
   ];
   return (
+    <>
+    {loading && <Loader />}
     <DashboardLayout>
+    
       <div className="user_controller">
         <h1>Lista Utenti</h1>
         <DataTable columns={userColumns} data={users} loading={loading} actions={userActions} />
       </div>
     </DashboardLayout>
+    </>
   );
 }

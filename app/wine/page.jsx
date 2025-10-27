@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/db';
 import Link from 'next/link';
 import MainLayout from '../components/layouts/MainLayout';
+import Loader from '../components/molecules/Loader';
 import  './page.css';
 
 
@@ -39,7 +40,14 @@ export default function WinesPage() {
     fetchWines();
   }, []);
 
-  if (loading) return <p>Caricamento...</p>;
+  
+          if (loading) {
+            return (
+              <MainLayout>
+                <Loader></Loader>
+              </MainLayout>
+            );
+          }
 
   return (
     <MainLayout> 
@@ -55,7 +63,6 @@ export default function WinesPage() {
            </div>
             <div className="card-content">
               <h2>{post.title}</h2>
-              <p>{post.content}</p>
             </div>
            <div className="card-link">
              <Link href={`/wine/${post.id}`}>Leggi articolo</Link>

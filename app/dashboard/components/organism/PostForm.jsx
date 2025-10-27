@@ -1,6 +1,8 @@
-'use client'
+"use client";
 import { useState } from "react";
 import { useUser } from "@/app/context/UserContext";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 
 export default function PostForm({ category }) {
   const { user } = useUser();
@@ -16,37 +18,32 @@ export default function PostForm({ category }) {
     const res = await fetch("/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title,
-        content,
-        category,
-        author_id: user.id
-      }),
+      body: JSON.stringify({ title, content, category, author_id: user.id }),
     });
     if (res.ok) {
       setTitle("");
       setContent("");
-      alert("Post creato!");
+      alert("Post pubblicato!");
     }
     setLoading(false);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="post-form">
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Titolo"
         required
       />
-      <textarea
+      <ReactQuill
+        theme="snow"
         value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Contenuto"
-        required
+        onChange={setContent}
+        placeholder="Scrivi qui il tuo contenuto..."
       />
       <button type="submit" disabled={loading}>
-        {loading ? "Caricamento..." : "Aggiungi Post"}
+        {loading ? "Caricamento..." : "Pubblica"}
       </button>
     </form>
   );

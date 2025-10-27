@@ -63,5 +63,6 @@ p, span, a, li, div {
 
 body{
      background-color: var(--background-secondary);
+       position: relative;
 }
 

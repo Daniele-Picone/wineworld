@@ -2,12 +2,15 @@
 "use client";
 
 import './page.css'
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
+import { useUser } from "@/app/context/UserContext";
 import { supabase } from "@/lib/db";
 import DashboardLayout from "./components/layout/dashboardLayout";
 import Charts from "./components/molecules/Charts";
 import TopCreators from './components/molecules/TopCreators';
 import DataTable from './components/molecules/DataTable';
+import Loader from '../components/molecules/Loader';
+import { useRouter } from "next/navigation";
 
 
 
@@ -15,6 +18,11 @@ export default function DashboardHome() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+   const { user } = useUser();
+   const router = useRouter();
+  
+   
+
 
   // post stats
   const categories = ["wines", "wineworld", "blog"];
@@ -144,10 +152,28 @@ const stats = [
     }
   }
 
- 
+useEffect(() => {
+    if (user === null) {
+      // se user è null, rimanda al login
+      router.push("/login");
+    }
+  }, [user, router]);
+
+  if (!user) {
+    // mentre il redirect avviene, mostra un loader
+    return (
+      <DashboardLayout>
+        <Loader />
+      </DashboardLayout>
+    );
+  }
+    
+
+    
   return (
- 
+  
     <DashboardLayout>
+     
       {/* analyses */}
       <div className="dashboard">
       <div className="dashboard_title">
@@ -160,13 +186,13 @@ const stats = [
           </div>
           <div className="analyse_content">
             {stats.map((stat, i) => ( 
-            <Charts
+              <Charts
               key={i}
               title={stat.title}
               total={stat.total}
               categories={stat.categories}
-            />
-          ))}
+              />
+            ))}
           </div>
       </div>
       <div className="Top_Creators">
@@ -194,5 +220,6 @@ const stats = [
         </div>
       </div>
     </DashboardLayout>
+          
   );
 }

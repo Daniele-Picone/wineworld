@@ -5,4 +5,8 @@ footer{
     height: 100px;
     padding: 30px;
     border-top: 3px solid var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: var(--color-primary);
 }

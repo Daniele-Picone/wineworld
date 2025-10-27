@@ -46,6 +46,7 @@ export default function Sidebar() {
           <Link href="/dashboard/history" onClick={closeMenu}><h3>History</h3></Link>
           <Link href="/dashboard/users" onClick={closeMenu}><h3>Analistics</h3></Link>
           <Link href="/dashboard/users" onClick={closeMenu}><h3>Tikets</h3></Link>
+          <Link href="/" onClick={closeMenu}><h3>HomePage</h3></Link>
           <div className="dash_logout">
             <button onClick={handleLogout} className='logoutbtn'>Logout</button>
           </div>

@@ -1,65 +1,134 @@
-@import '../../globals.css';
-
-
 .post-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fefefe;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  font-family: 'Arial', sans-serif;
+  gap: 1.5rem;
+  width: 80%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
-
-.post-form h2 {
+.post-form h2{
+  font-size: 1.5rem;
   text-align: center;
-  color: #333;
-  margin-bottom: 1rem;
+
 }
 
-.post-form input,
-.post-form textarea,
+.post-form:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
 .post-form select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 10px 12px;
   font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
+  border: 1px solid var(--background-primary);
+  border-radius: 10px;
+  background-color: white;
+  color: var(--background-primary);
+  appearance: none; /* Rimuove freccia di default su alcuni browser */
+  cursor: pointer;
+  transition: 0.3s;
 }
-
-.post-form input:focus,
-.post-form textarea:focus,
 .post-form select:focus {
-  border-color: #4f46e5; /* colore indaco */
+  outline: none;
+  border-color: var(--background-secondary);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+.post-form select option {
+  color: black;
+  background: white;
 }
 
-.post-form textarea {
-  min-height: 150px;
-  resize: vertical;
+/* 📝 Titolo input */
+.post-form input {
+  margin-top: 30px;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
+.post-form input:focus {
+  border-color: #8b0000; /* colore principale vino 🍷 */
+}
+
+/* ✍️ Editor */
+.ql-container {
+  border-radius: 10px !important;
+  min-height: 250px;
+  font-size: 1rem;
+}
+
+.ql-editor {
+  min-height: 200px;
+  padding: 1rem;
+}
+
+.ql-toolbar {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* 🚀 Pulsante di invio */
 .post-form button {
-  padding: 0.75rem 1rem;
-  background-color: #4f46e5;
+  background-color: #8b0000;
   color: white;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
+  padding: 12px 20px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
 }
 
 .post-form button:hover {
-  background-color: #4338ca;
-  transform: translateY(-2px);
+  background-color: #a10d0d;
+  transform: translateY(-1px);
 }
 
-.post-form p {
-  text-align: center;
-  font-size: 0.9rem;
+.post-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 🌍 Responsive */
+@media (max-width: 768px) {
+  .post-form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .post-form input {
+    font-size: 1rem;
+  }
+
+  .ql-container {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-form {
+    width: 95%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .post-form input {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .ql-editor {
+    min-height: 150px;
+  }
+
+  .post-form button {
+    font-size: 0.95rem;
+    padding: 10px 15px;
+  }
 }

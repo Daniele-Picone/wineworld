@@ -4,6 +4,7 @@ import{useState, useEffect} from 'react';
 import { supabase } from '@/lib/db';
 import DashboardLayout from '../components/layout/dashboardLayout';
 import DataTable from '../components/molecules/DataTable';
+import Loader from '@/app/components/molecules/Loader';
 
 
 import './page.css';
@@ -70,7 +71,7 @@ export default function HistoryPage(){
         <h1>Cronologia Attività</h1>
 
         {loading ? (
-          <div className="loading">Caricamento in corso...</div>
+          <Loader></Loader>
         ) : (
           <>
             {/* Tabella Post */}
