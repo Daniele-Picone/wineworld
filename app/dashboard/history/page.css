@@ -1,19 +1,23 @@
-
 @import '../../globals.css';
 
 
 
-.user_controller{
+.history-page{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 160px;
     height: 90vh;
-    gap: 50px;
+    width: 100%;
+
 }
-.user_controller h1{
+
+
+.history-page h1, .history-page h2{
     font-size: 2rem;
-   color: var(--background-primary);
-   font-weight: 700;
-   align-items: center ;
+    color: var(--background-primary);
+    font-weight: 700;
+    text-align: center;
+
 }

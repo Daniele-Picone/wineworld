@@ -14,9 +14,9 @@ export default function Charts({ title = "" , total= [], label = "Totale", categ
                     {categories.length > 0 && (
                     <ul>
                         {categories.map((cat, i) => (
-                            <li key={i}>
+                          <div key={i}>
                             {cat.name}: {cat.value} ({cat.percentage}%)
-                            </li>
+                        </div>
                         ))}
                     </ul>
                 )}

@@ -6,7 +6,18 @@ import Link from 'next/link';
 import MainLayout from '../components/layouts/MainLayout';
 import  './page.css';
 
+
+
+export const metadata = {
+  title: "Vini | WineWorld",
+  description: "Scopri insieme a noi tutte le differenti tipologie di vini ",
+};
+
 export default function WinesPage() {
+
+    
+
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 

@@ -1,61 +1,79 @@
-@import '../globals.css';
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* altezza fissa della pagina */
+  overflow-y: auto; /* scroll verticale */
+  padding: 0; /* togli padding per usare tutta la larghezza */
+  width: 100%;
+  box-sizing: border-box; /* include padding e border nel calcolo larghezza */
+  gap: 40px; /* spazio tra le sezioni */
+}
+.dashboard {
+  scrollbar-width: none; /* nasconde la scrollbar */
+  -ms-overflow-style: none; /* vecchi IE/Edge */
+}
 
-.dashboard{
-    display: flex;
-    height: 100Vh;
+.dashboard_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard_title h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--background-primary);
+}
+
+.analyse {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  background-color: var(--table-row-even);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  box-sizing: border-box; /* importante */
+}
+.dashboard h3{
+  color: var(--background-primary);
+   font-weight: 500;
+  margin-bottom: 15px;
+   font-size: 2rem;
+}
+.analyse_title h3 {
+  font-size: 2rem;
+  color: var(--background-primary);
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.analyse_content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* permette alle card di andare a capo se non ci stanno */
+  align-items: flex-start;
+  gap: 40px;
+}
+
+@media (max-width: 576px) {
+  .dashboard {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .analyse {
+    width: 90%;
+    margin: 20px auto;
+    padding: 1rem;
+  }
+  .dashboard_title h1 {
+    font-size: 1.3rem;
+  }
+  .analyse_content {
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-.dashboard_title{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.dashboard_title h1{
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--background-primary);
-}
-
-.analyse{
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 60px;
-    border: 3px solid var(--color-primary);
-    border-radius: 15px;
-    padding: 2rem;
-}
-.analyse_title h3{
-    font-size: 2rem;
-    color: var(--background-primary);
-    font-weight: 500;
-}
-
-.analyse_content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-@media (max-width: 480px){
-    .analyse{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;justify-content: center;
-        align-items: center;
-        width: 80%;
-        padding: 0;
-    }
-    .dashboard_title h1{
-        font-size: 1.3rem;
-    }
-    .analyse_content{
-        display: flex;
-        flex-direction: column;
-    }
+  }
 }

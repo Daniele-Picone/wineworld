@@ -3,12 +3,18 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@/app/context/UserContext";
 import DashboardLayout from "../components/layout/dashboardLayout";
+import DataTable from "../components/molecules/DataTable";
 import './page.css';
 
 export default function UsersPage() {
   const { user } = useUser();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
+
+
+
 
   const fetchUsers = async () => {
     try {
@@ -60,44 +66,21 @@ export default function UsersPage() {
     );
   }
 
+  const userColumns = [
+    { key: "id", label: "ID" },
+    { key: "name", label: "Nome" },
+    { key: "email", label: "Email" },
+    { key: "role", label: "Ruolo" },
+    { key: "created_at", label: "Data Registrazione" },
+  ];
+  const userActions = [
+    { label: 'Elimina', text: 'Elimina', onClick: (user) => deleteUser(user.id), className: 'btn-delete' }
+  ];
   return (
     <DashboardLayout>
       <div className="user_controller">
         <h1>Lista Utenti</h1>
-        <table className="user_table">
-          <thead className="column_name">
-            <tr className="column_name_row">
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Ruolo</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody className="table_body">
-            {users.length === 0 ? (
-              <tr>
-                <td colSpan="5" style={{ textAlign: 'center', padding: '20px' }}>
-                  Nessun utente trovato
-                </td>
-              </tr>
-            ) : (
-              users.map(u => (
-                <tr className="user_row" key={u.id}>
-                  <td className="user_date">{u.id}</td>
-                  <td className="user_date">{u.name}</td>
-                  <td className="user_date">{u.email}</td>
-                  <td className="user_date">{u.role}</td>
-                  <td className="user_date">
-                    <button onClick={() => deleteUser(u.id)}>
-                      Elimina
-                    </button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+        <DataTable columns={userColumns} data={users} loading={loading} actions={userActions} />
       </div>
     </DashboardLayout>
   );

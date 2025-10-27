@@ -1,213 +1,232 @@
-@import '../../../globals.css';
-
 .user_table_container {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px var(--card-shadow);
+  background-color: var(--card-bg);
 }
 
 .user_table {
   width: 100%;
-  min-width: 600px; /* Larghezza minima per evitare compressione eccessiva */
+  min-width: 600px;
   border-collapse: collapse;
-  background-color: #f9f9f9;
+  background-color: var(--table-row-odd);
 }
 
 .user_table th,
 .user_table td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--table-border);
 }
 
 .user_table th {
-  background-color: var(--color-primary); 
-  color: white;
-  font-weight: 600;
+  background-color: var(--table-header);
+  color: var(--background-secondary);
+  font-weight: 700;
   font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .user_table td {
   font-size: 0.9rem;
+  color: var(--text-primary);
 }
 
-.user_table tr:nth-child(even) {
-  background-color: #f1f1f1;
+.user_table tbody tr:nth-child(even) {
+  background-color: var(--table-row-even);
 }
 
-.user_table tr:hover {
-  background-color: #e0e0ff;
-  transition: background-color 0.2s ease;
+.user_table tbody tr:nth-child(odd) {
+  background-color: var(--table-row-odd);
+}
+
+.user_table tbody tr:hover {
+  background-color: var(--table-hover);
+  transition: background-color 0.3s ease;
 }
 
 .user_date {
   font-size: 0.85rem;
   text-transform: uppercase;
-  color: #666;
-}
-
-.user_table button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--color-secondary);
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 0.85rem;
+  color: var(--gray-medium);
   font-weight: 500;
+}
+
+.btn-action {
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-secondary);
+  color: var(--background-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
   white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.user_table button:hover {
-  background-color: #dc2626;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+.btn-action:hover {
+  background-color: var(--accent-olive);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Tablet grande (max 1200px) */
+.btn-action:active {
+  transform: translateY(0);
+  background-color: var(--active-state);
+}
+
+.btn-edit {
+  background-color: var(--info);
+}
+
+.btn-edit:hover {
+  background-color: var(--color-primary);
+}
+
+.btn-delete {
+  background-color: var(--error);
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: var(--gray-light);
+
+}
+.btn-action{
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  background-color: var(--accent-burgundy);
+}
+
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: var(--gray-medium);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.user_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+.table-title {
+  color: var(--background-primary);
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 @media (max-width: 1200px) {
   .user_table {
     min-width: 550px;
   }
-
   .user_table th,
   .user_table td {
     padding: 10px 12px;
     font-size: 0.88rem;
   }
-
-  .user_date {
-    font-size: 0.8rem;
-  }
-
-  .user_table button {
-    padding: 5px 10px;
+  .btn-action {
+    padding: 6px 12px;
     font-size: 0.8rem;
   }
 }
 
-/* Tablet (max 992px) */
 @media (max-width: 992px) {
   .user_table {
     min-width: 500px;
     font-size: 0.85rem;
   }
-
   .user_table th,
   .user_table td {
     padding: 8px 10px;
   }
-
   .user_table th {
     font-size: 0.85rem;
   }
-
-  .user_date {
-    font-size: 0.75rem;
-  }
-
-  .user_table button {
-    padding: 4px 8px;
-    font-size: 0.75rem;
-  }
 }
 
-/* Tablet piccolo / Mobile landscape (max 768px) */
 @media (max-width: 768px) {
-  .user_table_container {
-
-    border-radius: 0;
-  }
-
   .user_table {
     min-width: 480px;
   }
-
   .user_table th,
   .user_table td {
     padding: 8px;
     font-size: 0.8rem;
   }
-
-  .user_table th {
-    font-size: 0.8rem;
-    position: sticky;
-    left: 0;
-    z-index: 1;
-  }
-
-  .user_date {
-    font-size: 0.7rem;
-  }
-
-  .user_table button {
-    padding: 4px 8px;
-    font-size: 0.7rem;
+  .btn-action {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    margin: 0 2px;
   }
 }
 
-/* Mobile (max 576px) */
 @media (max-width: 576px) {
-  .user_table_container {
-    margin: 0 -8px;
-  }
-
   .user_table {
     min-width: 450px;
   }
-
   .user_table th,
   .user_table td {
     padding: 6px;
     font-size: 0.75rem;
   }
-
-  .user_table th {
-    font-size: 0.75rem;
-    padding: 8px 6px;
-  }
-
-  .user_date {
-    font-size: 0.65rem;
-  }
-
-  .user_table button {
-    padding: 3px 6px;
-    font-size: 0.65rem;
+  .user_image {
+    width: 40px;
+    height: 40px;
   }
 }
 
-/* Mobile piccolo (max 420px) */
 @media (max-width: 420px) {
-
-  .user_table_container {
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  }
-
   .user_table {
     min-width: 370px;
   }
-
   .user_table th,
   .user_table td {
     padding: 5px;
-    font-size: 0.4rem;
-    font-weight: 700;
-  }
-
-  .user_table th {
     font-size: 0.7rem;
   }
-
-  .user_date {
-    font-size: 0.9rem;
+  .btn-action {
+    padding: 4px 8px;
+    font-size: 0.65rem;
   }
-
-  .user_table button {
-    padding: 0;
-    font-size: 0.9rem;
+  .user_image {
+    width: 35px;
+    height: 35px;
   }
 }

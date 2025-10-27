@@ -4,9 +4,11 @@
 import './page.css'
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/db";
-import DataTable from './components/molecules/DataTable';
 import DashboardLayout from "./components/layout/dashboardLayout";
 import Charts from "./components/molecules/Charts";
+import TopCreators from './components/molecules/TopCreators';
+import DataTable from './components/molecules/DataTable';
+
 
 
 export default function DashboardHome() {
@@ -17,12 +19,36 @@ export default function DashboardHome() {
   // post stats
   const categories = ["wines", "wineworld", "blog"];
   const totalPosts = posts.length;
+  const wines = posts.filter(p => p.category === "wines");
+  const wineworld = posts.filter(p => p.category === "wineworld");
+  const blog = posts.filter(p => p.category === "blog")
 
 const categoryData = categories.map((category) => {
   const count = posts.filter((post) => post.category === category).length;
   const percentage = ((count / totalPosts) * 100).toFixed(0);
   return { name: category, value: count, percentage };
 });
+  const TopCreatorsData = posts.reduce( (acc , post) =>{
+    const name = post.user_name || "sconosciuto";
+      if(!acc[name]) acc[name]={name, count:1};
+      else acc[name].count++;
+      return acc;
+  }, {})
+    
+  const sortedCreators = Object.values(TopCreatorsData).map((creator)=>({
+    ...creator,
+    percentage: ((creator.count/ totalPosts)*100).toFixed(1),
+  })).sort((a,b) => b.count - a.count).slice(0,5)
+    
+  const postColumns = [
+    { key: "id", label: "ID" },
+    { key: "title", label: "Titolo" },
+    { key: "category", label: "Categoria" },
+    { key: "user_name", label: "Autore" }
+  ];
+    const postActions = [
+    { label: 'Elimina', text: 'Elimina', onClick: (post) => deletePost(post.id), className: 'btn-delete' }
+  ];
 
   // user stats
 
@@ -31,11 +57,20 @@ const categoryData = categories.map((category) => {
 
   const userCategoryData = userCategories.map((userCategory) => {
     const count = users.filter((user) => user.role === userCategory ).length;
-    const percentage = ((count/totalUsers) * 100 ).toFixed(0)
+    const percentage = totalPosts > 0 ? ((count / totalPosts) * 100).toFixed(0) : 0;
      return { name: userCategory, value: count, percentage };
   } )
-
-
+  
+  const userColumns = [
+    { key: "id", label: "ID" },
+    { key: "name", label: "Nome" },
+    { key: "email", label: "Email" },
+    { key: "role", label: "Ruolo" },
+    { key: "created_at", label: "Data Registrazione" },
+  ];
+  const userActions = [
+    { label: 'Elimina', text: 'Elimina', onClick: (user) => deleteUser(user.id), className: 'btn-delete' }
+  ];
 const stats = [
   { title: "Utenti", total: users.length, categories: userCategoryData },
   { title: "Post", total: posts.length , categories:categoryData },
@@ -111,9 +146,10 @@ const stats = [
 
  
   return (
+ 
     <DashboardLayout>
       {/* analyses */}
-      <div className="dashborad">
+      <div className="dashboard">
       <div className="dashboard_title">
           <h1>Dashboard</h1>
       </div>
@@ -133,6 +169,29 @@ const stats = [
           ))}
           </div>
       </div>
+      <div className="Top_Creators">
+          <TopCreators creators={sortedCreators} />
+      </div>
+      <div className="userTable">
+        <h3>Ultimi Iscritti</h3>
+        <DataTable columns={userColumns} data={users} loading={loading} actions={userActions} />
+      </div>
+      <div className="postsTable">
+        <h3>Ultimi Post</h3>
+        <DataTable columns={postColumns} data={posts} loading={loading} actions={postActions} />
+      </div>
+      <div className="wineTable">
+        <h3>Ultimi Post Wine</h3>
+        <DataTable columns={postColumns} data={wines} loading={loading} actions={postActions} />
+      </div>
+        <div className="wineWorldTable">
+          <h3>Ultimi Post WineWorld</h3>
+          <DataTable columns={postColumns} data={wineworld} loading={loading} actions={postActions} />
+        </div>
+        <div className="blogTable">
+          <h3>Ultimi Post Blog</h3>
+          <DataTable columns={postColumns} data={blog} loading={loading} actions={postActions} />
+        </div>
       </div>
     </DashboardLayout>
   );

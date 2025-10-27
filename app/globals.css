@@ -6,12 +6,47 @@
 
 
 :root{
-    --background-primary: #6F1D1B;
-    --background-secondary: #F5F3E7 ;
-    --text-primary:#2F4F4F;
-    --color-primary:#C2B280;
-    --color-secondary:#556B2F;
+       --background-primary: #6F1D1B;
+    --background-secondary: #F5F3E7;
+    --text-primary: #2F4F4F;
+    --color-primary: #C2B280;
+    --color-secondary: #556B2F;
+    
+    /* Colori per tabelle */
+    --table-header: #8B4513;
+    --table-row-even: #F9F7F0;
+    --table-row-odd: #FFFFFF;
+    --table-border: #D4C5A9;
+    --table-hover: #E8DCC8;
+    
+    /* Colori per stati */
+    --success: #5D8C3E;
+    --warning: #D4A017;
+    --error: #A52A2A;
+    --info: #4A7C7E;
+    
+    /* Colori neutri/grigi */
+    --gray-light: #E5E5E5;
+    --gray-medium: #9E9E9E;
+    --gray-dark: #4A4A4A;
+    
+    /* Accenti */
+    --accent-gold: #B8860B;
+    --accent-burgundy: #800020;
+    --accent-olive: #6B8E23;
+    --accent-terracotta: #C65D3B;
+    
+    /* Sfumature per cards/containers */
+    --card-bg: #FDFBF7;
+    --card-shadow: rgba(111, 29, 27, 0.1);
+    --border-light: #DDD5C7;
+    
+    /* Colori interattivi */
+    --hover-light: #F0E6D2;
+    --active-state: #A8956E;
+    --disabled: #BFBFBF;
 }
+
 *{
     margin: 0;
     padding: 0;
