@@ -8,10 +8,7 @@ import  './page.css';
 
 
 
-export const metadata = {
-  title: "Vini | WineWorld",
-  description: "Scopri insieme a noi tutte le differenti tipologie di vini ",
-};
+
 
 export default function WinesPage() {
 
