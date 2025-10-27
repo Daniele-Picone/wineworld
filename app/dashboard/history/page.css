@@ -21,3 +21,13 @@
     text-align: center;
 
 }
+
+
+@media (max-width: 560px){
+    
+   
+    .history-section{
+        width: 90%;
+    }
+
+}
