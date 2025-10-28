@@ -3,7 +3,7 @@
 
 .wine-detail {
   width: min(90%, 900px);
-  height: 100vh;
+  height: auto;
   margin: 80px auto;
   padding: 40px;
   background: #fff;
@@ -52,7 +52,7 @@
   font-size: 1.15rem;
   line-height: 1.9;
   color: #333;
-  text-align: justify;
+  text-align: start;
   margin-bottom: 30px;
   font-family: 'Lora', serif;
 }
@@ -84,8 +84,8 @@
 
 
 @media screen and (min-width: 480px) {
-  .wine-detail{
+   .wine-detail{
     
-    height:auto ;
+    
   } 
 }  

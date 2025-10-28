@@ -1,6 +1,6 @@
 .wine-detail {
   width: min(90%, 900px);
-  height: 100vh;
+  height: auto;
   margin: 80px auto;
   padding: 40px;
   background: #fff;
@@ -20,7 +20,7 @@
   margin-bottom: 20px;
   text-align: center;
   line-height: 1.2;
-  font-family: 'Playfair Display', serif;
+
 }
 
 /* Immagine */
