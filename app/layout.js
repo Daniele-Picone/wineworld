@@ -15,16 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "WineWorld",
   description: "Scopri il meraviglioso mondo del vino con WineWorld.",
- icons: {
-    icon: "public/favicon.ico",
-    shortcut: "public/favicon.ico",
-    apple: "public/favicon.ico",
-  },
+ 
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <UserProvider>
           {children}
