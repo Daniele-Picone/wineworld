@@ -55,7 +55,7 @@ export default function WinesPage() {
 
     <div className='winepage'>
       <h1>Il mondo del vino</h1>
-      {posts.length === 0 && <p>Nessun post disponibile.</p>}
+      {posts.length === 0 && <p className='message' >   Nessun post disponibile.</p>}
       <div className="posts-wrapper">
         {posts.map((post) => (
             <div key={post.id} className="post-card">

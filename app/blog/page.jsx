@@ -1,10 +1,77 @@
-import MainLayout from "@/app/components/layouts/MainLayout";
+'use client';
 
-export default function BlogPage() {
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/db';
+import Link from 'next/link';
+import MainLayout from '../components/layouts/MainLayout';
+import Loader from "@/app/components/molecules/Loader";
+import  './page.css';
+
+
+
+
+
+
+export default function WinesPage() {
+
+    
+
+
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchWines = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .ilike('category', 'blog')     
+
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Errore fetching posts:', error);
+      } else {
+        setPosts(data);
+      }
+      setLoading(false);
+    };
+
+    fetchWines();
+  }, []);
+
+  
+          if (loading) {
+            return (
+              <MainLayout>
+                <Loader></Loader>
+              </MainLayout>
+            );
+          }
+
   return (
-    <MainLayout>
-      <h1>Blog Page</h1>
-      <p>Benvenuto nella sezione blog!</p>
-    </MainLayout>
+    <MainLayout> 
+
+    <div className='winepage'>
+      <h1>Il mio blog personale</h1>
+      {posts.length === 0 && <p className='message' >   Nessun post disponibile.</p>}
+      <div className="posts-wrapper">
+        {posts.map((post) => (
+            <div key={post.id} className="post-card">
+           <div className="card-img">
+             <img src={post.image_url} alt={post.title} />
+           </div>
+            <div className="card-content">
+              <h2>{post.title}</h2>
+            </div>
+           <div className="card-link">
+             <Link href={`/wineworld/${post.id}`}>Leggi articolo</Link>
+           </div>
+          </div>
+        ))}
+      </div>
+    </div>
+     </MainLayout>
   );
 }
