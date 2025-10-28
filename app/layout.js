@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "WineWorld",
   description: "Scopri il meraviglioso mondo del vino con WineWorld.",
+ icons: {
+    icon: "public/favicon.ico",
+    shortcut: "public/favicon.ico",
+    apple: "public/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

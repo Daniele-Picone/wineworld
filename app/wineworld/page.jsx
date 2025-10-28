@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/db';
 import Link from 'next/link';
 import MainLayout from '../components/layouts/MainLayout';
+import Loader from "@/app/components/molecules/Loader";
 import  './page.css';
+
 
 
 
@@ -43,9 +45,7 @@ export default function WinesPage() {
           if (loading) {
             return (
               <MainLayout>
-                <div className="loading-overlay">
-              <div className="spinner"></div>
-            </div>
+                <Loader></Loader>
               </MainLayout>
             );
           }

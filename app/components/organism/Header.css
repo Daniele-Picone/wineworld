@@ -36,6 +36,8 @@
 
 /* Responsive: mobile piccolo */
 @media (max-width: 480px) {
+   
+  
   .logo h1 {
     font-size: 1.6rem;
   }

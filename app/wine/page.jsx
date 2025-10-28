@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/db';
 import Link from 'next/link';
 import MainLayout from '../components/layouts/MainLayout';
-import Loader from '../components/molecules/Loader';
+import Loader from "@/app/components/molecules/Loader";
 import  './page.css';
 
 
