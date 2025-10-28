@@ -21,7 +21,7 @@
   font-size: 3rem;
   color:  var(--background-primary); /* tono vino profondo */
   margin-bottom: 20px;
-  text-align: center;
+  text-align: start;
   line-height: 1.2;
   font-family: 'Playfair Display', serif;
 }
@@ -83,7 +83,7 @@
 
 
 
-@media screen and (min-width: 370px) {
+@media screen and (min-width: 480px) {
   .wine-detail{
     
     height:auto ;
