@@ -66,7 +66,7 @@ export default function WinesPage() {
               <h2>{post.title}</h2>
             </div>
            <div className="card-link">
-             <Link href={`/wineworld/${post.id}`}>Leggi articolo</Link>
+             <Link href={`/wineworld/${post.slug}`}>Leggi articolo</Link>
            </div>
           </div>
         ))}

@@ -8,6 +8,9 @@ import DashboardLayout from "../components/layout/dashboardLayout";
 import { supabase } from "@/lib/db";
 import Loader from "@/app/components/molecules/Loader";
 
+
+
+
 // ✅ CRITICAL: Import dinamico per evitare errori SSR
 const ReactQuill = dynamic(
   async () => {
@@ -29,9 +32,11 @@ export default function PostForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  
+
   const fileInputRef = useRef(null);
 
+
+  
   const categories = ["wines", "wineworld", "blog"];
 
   useEffect(() => {

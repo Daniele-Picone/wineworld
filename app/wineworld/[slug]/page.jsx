@@ -5,14 +5,14 @@ import Link from "next/link";
 
 
 export default async function WineDetail({ params }) {
-  const { id } = params;
+  const { slug } = params;
 
 
   // Prende il singolo post dal database
   const { data: post, error } = await supabase
     .from("posts")
     .select("*")
-    .eq("id", id)
+    .eq("slug", slug)
     .single();
 
   if (error || !post) {
