@@ -102,11 +102,9 @@
     padding: 10px;
     color: var(--color-primary);
     font-weight: bold;
-    text-decoration: underline;
-}
-.card-link{
     text-decoration: none;
     font-size: 1.3rem;
+   
 }
 
 @media screen and (max-width:480px){
@@ -134,7 +132,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        height: auto;
+        height: 190px;
        
     }
     .card-content h2 {
@@ -149,6 +147,10 @@
     margin-top: 6rem;
     height: 200px;
     font-size: 1.5rem;
+}
+.card-link{
+    padding: 3px;
+    font-size: 0.8rem;
 }
 } 
 
