@@ -109,6 +109,7 @@
   .nav_links.active {
     transform: translatex(0);
     opacity: 1;
+    padding: 0;
     pointer-events: auto;
   }
 
@@ -132,7 +133,7 @@
   }
   
   .nav_links{
-   width: 200px;
+   width: 250px;
    margin-right: -35px ;
    margin-top: -14px;
    padding: 1rem;
