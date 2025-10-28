@@ -124,7 +124,9 @@
     }
 
     .post-card {
-        max-width: 150px;
+        max-width: 170px;
+        max-height: 300px;
+        padding: 0.4rem;
         border-radius: 0px;
     }
     .card-content{
@@ -132,11 +134,13 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        max-width: 170px;
        
     }
     .card-content h2 {
     font-size: 1rem;
     text-transform: uppercase;
+    text-align: start;
     margin-bottom: 4px;
     margin-left: 10px;
 }
