@@ -1,3 +1,6 @@
+
+@import '../../globals.css';
+
 .wine-detail {
   width: min(90%, 900px);
   height: 100vh;
@@ -16,7 +19,7 @@
 /* Titolo principale */
 .wine-detail h1 {
   font-size: 3rem;
-  color: #2c1a1a; /* tono vino profondo */
+  color:  var(--background-primary); /* tono vino profondo */
   margin-bottom: 20px;
   text-align: center;
   line-height: 1.2;

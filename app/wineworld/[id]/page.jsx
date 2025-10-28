@@ -35,9 +35,9 @@ export default async function WineDetail({ params }) {
         <img src={post.image_url} alt={post.title} />
       </div>
       <div className="wine-content" dangerouslySetInnerHTML={{ __html: post.content }}/>
-      <p className="wine-author">Autore: {post.user_name}</p>
+      <p className="wine-author">Autore: Daniele Picone</p>
       <div className="wine-back">
-        <Link href="/wine" className="back-btn">
+        <Link href="/wineworld" className="back-btn">
           ← Torna alla sezione vini 
         </Link>
       </div>
