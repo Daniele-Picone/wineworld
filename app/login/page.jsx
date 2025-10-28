@@ -74,16 +74,13 @@ export default function LoginPage() {
 
   return (
     <div className="login_page"> 
-      <div className="login_page_img">
-        <img src="/loginimg.jpg" alt="foto vigna" />
-      </div>
 
       <div className="login_page_form">
         <Link className="form_back_hm" href="/">Torna alla home</Link>
         
         <form onSubmit={handleSubmit} className="login_form">
           <div className="login_form_title">
-            <h1>Login</h1>
+            <h1>Login amministrativo</h1>
           </div>
 
           <div className="login_form_inputs">
@@ -101,9 +98,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              disabled={loading}
-            />
-            <Link className="form_back_hm" href="/register">Non sei ancora registrato?</Link>
+              disabled={loading} />
           </div>
 
           <button className="login_btn" type="submit" disabled={loading}>
