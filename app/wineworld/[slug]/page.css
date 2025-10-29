@@ -40,11 +40,6 @@
   object-fit: cover;
   display: block;
   border-radius: 12px;
-  transition: transform 0.4s ease;
-}
-
-.wine-image img:hover {
-  transform: scale(1.03);
 }
 
 /* Contenuto */

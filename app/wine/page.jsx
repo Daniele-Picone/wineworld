@@ -57,6 +57,7 @@ export default function WinesPage() {
       {posts.length === 0 && <p className='message' >Nessun post disponibile.</p>}
       <div className="posts-wrapper">
         {posts.map((post) => (
+        <Link href={`/wine/${post.slug}`}>
             <div key={post.id} className="post-card">
            <div className="card-img">
              <img src={post.image_url} alt={post.title} />
@@ -65,9 +66,10 @@ export default function WinesPage() {
               <h2>{post.title}</h2>
             </div>
            <div className="card-link">
-             <Link href={`/wine/${post.slug}`}>Leggi articolo</Link>
+            <p>Leggi articolo</p>
            </div>
           </div>
+        </Link>
         ))}
       </div>
     </div>

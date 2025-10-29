@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useUser } from "@/app/context/UserContext";
 import { useRouter } from "next/navigation";
 import "./NavLinks.css";
@@ -9,15 +9,30 @@ export default function NavLinks() {
   const { user, logout } = useUser();
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
 
   const handleLogout = () => {
     logout();
     router.push("/");
     setMenuOpen(false);
   };
+useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navRef} >
       {/* Hamburger */}
       <div
         className={`hamburger ${menuOpen ? "open" : ""}`}
