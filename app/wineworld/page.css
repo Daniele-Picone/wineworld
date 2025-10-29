@@ -190,3 +190,10 @@
 } 
 
 
+@media screen and (max-width:369px){
+
+     .post-card {
+        max-width: 160px;
+        max-height: 350px;
+    }
+}

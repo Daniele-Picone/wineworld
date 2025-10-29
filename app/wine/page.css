@@ -141,7 +141,7 @@
     }
 }
 
-@media screen and (max-width:480px){
+@media screen and (max-width:489px){
     .winepage{
         height: auto;
         width: 100%;
@@ -190,3 +190,10 @@
 } 
 
 
+@media screen and (max-width:369px){
+
+     .post-card {
+        max-width: 160px;
+        max-height: 350px;
+    }
+}
