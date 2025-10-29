@@ -1,3 +1,6 @@
+
+@import '../../globals.css';
+
 .wine-detail {
   width: min(90%, 900px);
   height: auto;
@@ -16,11 +19,11 @@
 /* Titolo principale */
 .wine-detail h1 {
   font-size: 3rem;
-  color: #2c1a1a; /* tono vino profondo */
+  color:  var(--background-primary); /* tono vino profondo */
   margin-bottom: 20px;
-  text-align: center;
+  text-align: start;
   line-height: 1.2;
-
+  font-family: 'Playfair Display', serif;
 }
 
 /* Immagine */
@@ -49,7 +52,7 @@
   font-size: 1.15rem;
   line-height: 1.9;
   color: #333;
-  text-align: justify;
+  text-align: start;
   margin-bottom: 30px;
   font-family: 'Lora', serif;
 }
@@ -80,9 +83,19 @@
 
 
 
-@media screen and (min-width: 370px) {
-  .wine-detail{
+@media screen and (max-width: 480px) {
+   .wine-detail{
+    width: 100%;
+    padding: 1rem ;
+    height: auto;
+    margin: 2rem 0;
     
-    height:auto ;
   } 
+  .wine-detail h1{
+    font-size: 1.8rem;
+
+  }
+  .wine-content{
+    text-align: center;
+  }
 }  

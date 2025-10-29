@@ -83,9 +83,19 @@
 
 
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
    .wine-detail{
-    
+    width: 100%;
+    padding: 1rem ;
+    height: auto;
+    margin: 2rem 0;
     
   } 
+  .wine-detail h1{
+    font-size: 1.8rem;
+
+  }
+  .wine-content{
+    text-align: center;
+  }
 }  

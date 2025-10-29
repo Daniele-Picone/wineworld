@@ -6,7 +6,8 @@ footer{
     padding: 30px;
     border-top: 3px solid var(--color-primary);
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     color: var(--color-primary);
 }

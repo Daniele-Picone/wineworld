@@ -40,7 +40,9 @@ export default async function WineDetail({ params }) {
         <Link href="/wineworld" className="back-btn">
           ← Torna alla sezione vini 
         </Link>
+        
       </div>
+      
     </div>
     </MainLayout>
   );
