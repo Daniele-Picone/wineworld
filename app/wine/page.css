@@ -109,6 +109,9 @@
         max-height: 350px;
         padding: 0.2rem;
     }
+     .post-card:hover {
+    transform: none;
+   }
 }
 @media screen and (max-width:744px){
      .winepage{
@@ -121,6 +124,9 @@
         max-height: 350px;
         padding: 0.2rem;
     }
+     .post-card:hover {
+    transform: none;
+   }
     .posts-wrapper{
         max-height: 100vh;
         width: 100%;
@@ -136,6 +142,9 @@
         max-height: 350px;
         padding: 0.2rem;
     }
+     .post-card:hover {
+    transform: none;
+   }
 }
 
 @media screen and (max-width:489px){
@@ -159,6 +168,9 @@
         max-height: 350px;
         padding: 0.2rem;
     }
+    .post-card:hover {
+    transform: none;
+   }
     .card-content{
         padding: 0.4rem 0;
         display: flex;
