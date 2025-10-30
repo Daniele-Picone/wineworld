@@ -12,6 +12,7 @@
   scrollbar-width: none; /* nasconde la scrollbar */
   -ms-overflow-style: none; /* vecchi IE/Edge */
 }
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -34,7 +35,14 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-
+.edit-btn{
+    padding: 0.4rem 0.2rem;
+    margin-left:2px ;
+    font-size: 1rem;
+    border-radius: 8px;
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

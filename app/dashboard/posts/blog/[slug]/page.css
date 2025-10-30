@@ -1,0 +1,113 @@
+
+
+
+
+@import '../../../../globals.css';
+.wine-back{
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn{
+    padding: 0.2rem 1rem;
+    background-color: var(--color-secondary);
+    font-size: 1.4rem;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+}
+.wine-detail {
+  width: min(90%, 900px);
+  height: auto;
+  margin: 80px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.wine-detail:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Titolo principale */
+.wine-detail h1 {
+  font-size: 3rem;
+  color:  var(--background-primary); /* tono vino profondo */
+  margin-bottom: 20px;
+  text-align: start;
+  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Immagine */
+.wine-image {
+  max-height: 550px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.wine-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Contenuto */
+.wine-content {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #333;
+  text-align: start;
+  margin-bottom: 30px;
+  font-family: 'Lora', serif;
+}
+
+/* Autore */
+.wine-author {
+  color: #7a6f6f;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* Bottone indietro */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #8b0000;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #a00000;
+}
+
+
+
+@media screen and (max-width: 480px) {
+   .wine-detail{
+    width: 100%;
+    padding: 1rem ;
+    height: auto;
+    margin: 2rem 0;
+    
+  } 
+  .wine-detail h1{
+    font-size: 1.8rem;
+
+  }
+  .wine-content{
+    text-align: center;
+  }
+}  

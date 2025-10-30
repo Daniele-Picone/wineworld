@@ -3,18 +3,15 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/db';
 import Link from 'next/link';
-import MainLayout from '../components/layouts/MainLayout';
 import Loader from "@/app/components/molecules/Loader";
 import  './page.css';
+import DashboardLayout from '../../components/layout/dashboardLayout';
 
 
 
 
 
-
-export default function WineWorldPage() {
-
-    
+export default function BlogDashboardPage() {
 
 
   const [posts, setPosts] = useState([]);
@@ -26,7 +23,7 @@ export default function WineWorldPage() {
       const { data, error } = await supabase
         .from('posts')
         .select('*')
-        .ilike('category', 'wineworld')     // ignora maiuscole/minuscole
+        .ilike('category', 'blog')     // ignora maiuscole/minuscole
 
         .order('created_at', { ascending: false });
 
@@ -44,21 +41,21 @@ export default function WineWorldPage() {
   
           if (loading) {
             return (
-              <MainLayout>
+              <DashboardLayout>
                 <Loader></Loader>
-              </MainLayout>
+              </DashboardLayout>
             );
           }
 
   return (
-    <MainLayout> 
+    <DashboardLayout> 
 
     <div className='winepage'>
-      <h1>Il mondo del vino</h1>
-      {posts.length === 0 && <p className='message' >   Nessun post disponibile.</p>}
+      <h1>Blog</h1>
+      {posts.length === 0 && <p className='message' >Nessun post disponibile.</p>}
       <div className="posts-wrapper">
         {posts.map((post) => (
-        <Link href={`/wineworld/${post.slug}`}>
+        <Link href={`/wine/${post.slug}`}>
             <div key={post.id} className="post-card">
            <div className="card-img">
              <img src={post.image_url} alt={post.title} />
@@ -67,13 +64,13 @@ export default function WineWorldPage() {
               <h2>{post.title}</h2>
             </div>
            <div className="card-link">
-             <p> Leggi articolo</p>
+            <p>Leggi articolo</p>
            </div>
           </div>
         </Link>
         ))}
       </div>
     </div>
-     </MainLayout>
+     </DashboardLayout>
   );
 }

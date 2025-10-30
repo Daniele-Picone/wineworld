@@ -55,7 +55,8 @@ const categoryData = categories.map((category) => {
     { key: "user_name", label: "Autore" }
   ];
     const postActions = [
-    { label: 'Elimina', text: 'Elimina', onClick: (post) => deletePost(post.id), className: 'btn-delete' }
+    { label: 'Elimina', text: 'Elimina', onClick: (post) => deletePost(post.id), className: 'btn-delete' },
+    {label: 'Modifica',text: '✏️ Modifica',onClick: (post) => router.push(`/dashboard/posts/edit/${post.id}`), className: 'edit-btn', },
   ];
 
   // user stats

@@ -42,9 +42,9 @@ export default function Sidebar() {
           <Link href="/dashboard" onClick={closeMenu}><h3>Dashboard</h3></Link>
           <Link href="/dashboard/users" onClick={closeMenu}><h3>Users</h3></Link>
           <Link href="/dashboard/articles" onClick={closeMenu}><h3>Scrivi Articolo</h3></Link>
-          <Link href="/dashboard/users" onClick={closeMenu}><h3>Scrivi Blog</h3></Link>
-          <Link href="/dashboard/history" onClick={closeMenu}><h3>History</h3></Link>
-          <Link href="/dashboard/users" onClick={closeMenu}><h3>Analistics</h3></Link>
+          <Link href="/dashboard/posts/wine" onClick={closeMenu}><h3>Articoli Vino</h3></Link>
+          <Link href="/dashboard/posts/wineworld" onClick={closeMenu}><h3>Articoli Wineworld</h3></Link>
+          <Link href="/dashboard/posts/blog" onClick={closeMenu}><h3>Articoli Blog</h3></Link>
           <Link href="/dashboard/users" onClick={closeMenu}><h3>Tikets</h3></Link>
           <Link href="/" onClick={closeMenu}><h3>HomePage</h3></Link>
           <div className="dash_logout">

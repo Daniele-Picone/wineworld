@@ -1,0 +1,84 @@
+.post-form {
+  max-width: 90%;
+  margin: 40px auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; /* base testo più leggibile */
+}
+
+.post-form h2 {
+  margin-bottom: 20px;
+  font-size: 2rem; /* titolo più grande */
+}
+
+.post-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 1.1rem; /* etichette più grandi */
+}
+
+.post-form input,
+.post-form select,
+.post-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem; /* testo dei campi più leggibile */
+}
+
+.post-form .ql-container {
+  min-height: 200px;
+  font-size: 1rem; /* testo dell’editor più grande */
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.post-form button {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem; /* pulsante più leggibile */
+  transition: 0.2s;
+}
+
+.post-form button:hover {
+  background: var(--color-secondary);
+}
+
+.btn-cancel {
+  background: #ccc;
+  margin-left: 10px;
+  font-size: 1rem;
+  padding: 12px 20px;
+}
+
+.alert-success {
+  background-color: #D4EDDA;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.alert-error {
+  background-color: #F8D7DA;
+  color: #721C24;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
