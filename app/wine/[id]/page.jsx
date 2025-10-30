@@ -3,7 +3,26 @@ import MainLayout from "@/app/components/layouts/MainLayout";
 import './page.css';
 import Link from "next/link";
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
 
+  const { data: post } = await supabase
+    .from("posts")
+    .select("title, content")
+    .eq("slug", slug)
+    .single();
+
+  if (!post) return { title: "Post non trovato" };
+
+  return {
+    title: post.title,
+    description: post.content.slice(0, 160), // prima parte come descrizione
+    openGraph: {
+      title: post.title,
+      description: post.content.slice(0, 160),
+    },
+  };
+}
 export default async function WineDetail({ params }) {
   const { id } = params;
 
