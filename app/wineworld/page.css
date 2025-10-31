@@ -161,7 +161,7 @@
         max-height: 100vh;
         width: 100%;
         overflow-y: auto;
-        padding: 0;
+        padding: 0.3rem;
         
     }
     .card-img img {
@@ -176,7 +176,7 @@
     transform: none;
    }
     .card-content{
-        padding: 0.4rem 0;
+        padding: 0.3rem 0;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -188,7 +188,7 @@
     text-transform: uppercase;
     text-align: start;
     margin-bottom: 4px;
-    margin-left: 10px;
+    margin-left: 1px;
 }
 .message{
     width: 100%;

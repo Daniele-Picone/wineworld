@@ -53,7 +53,7 @@ export default function WinesPage() {
     <MainLayout> 
 
     <div className='winepage'>
-      <h1>Vini</h1>
+      <h1>I Vini</h1>
       {posts.length === 0 && <p className='message' >Nessun post disponibile.</p>}
       <div className="posts-wrapper">
         {posts.map((post) => (
