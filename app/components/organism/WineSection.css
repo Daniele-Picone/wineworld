@@ -54,8 +54,20 @@
     font-size: 1.3rem;
     font-weight: 700;
 }
-
-@media screen and (max-width:480px) {
+@media screen and (max-width:944px){
+    .wine_intro_content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .wine_intro_content h2 {
+        font-size: 1.6rem;
+    }
+    .wine_intro_content p {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width:800px) {
     .wine_section{
         padding: 0;
     }

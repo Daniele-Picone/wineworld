@@ -47,9 +47,29 @@
     border-radius: 15px;
 
 }
+@media screen and (max-width:944px){
+.intro_content{
+        display: flex;
+       gap: 8px;
+    }
+    .intro_content h1{
+        font-size: 2rem;
+    }
+     .intro_content p{
+        font-size: 0.9rem;
+        margin: 2px ;
+        
+    }
+    .intro_img{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 50%;
+}
 
+}
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:800px) {
     .hero_section{
         padding: 0;
     }
