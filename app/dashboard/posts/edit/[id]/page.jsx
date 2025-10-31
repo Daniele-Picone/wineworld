@@ -272,7 +272,7 @@ export default function EditPostPage() {
 
       setMessage("✅ Articolo aggiornato con successo!");
       setTimeout(() => {
-        router.push(`/dashboard/posts/${post.category}`);
+        router.push(`/dashboard`);
       }, 1500);
     } catch (err) {
       console.error("❌ Errore completo:", err);

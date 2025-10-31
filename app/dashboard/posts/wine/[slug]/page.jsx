@@ -37,10 +37,14 @@ export default async function WineDetail({ params }) {
       <div className="wine-content" dangerouslySetInnerHTML={{ __html: post.content }}/>
       <p className="wine-author">Autore: {post.user_name}</p>
       <div className="wine-back">
-        <Link href="/dashboard/posts/wine" className="back-btn">
+        <Link href="/dashboard/posts/wineworld" className="back-btn">
           ← Torna alla sezione vini 
         </Link>
+        <Link href={`/dashboard/posts/edit/${post.id}`} className="edit-btn">
+            ✏️ Modifica
+          </Link>
       </div>
+      
     </div>
     </DashboardLayout>
   );
