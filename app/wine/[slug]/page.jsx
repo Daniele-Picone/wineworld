@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: post.title,
-    description: post.content.slice(0, 160), // prima parte come descrizione
+    description: post.content.slice(0, 160), 
     openGraph: {
       title: post.title,
       description: post.content.slice(0, 160),
@@ -24,14 +24,14 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function WineDetail({ params }) {
-  const { id } = params;
+  const { slug } = params;
 
 
   // Prende il singolo post dal database
   const { data: post, error } = await supabase
     .from("posts")
     .select("*")
-    .eq("id", id)
+    .eq("slug", slug)
     .single();
 
   if (error || !post) {
@@ -54,12 +54,14 @@ export default async function WineDetail({ params }) {
         <img src={post.image_url} alt={post.title} />
       </div>
       <div className="wine-content" dangerouslySetInnerHTML={{ __html: post.content }}/>
-      <p className="wine-author">Autore: {post.user_name}</p>
+      <p className="wine-author">Autore: Daniele Picone</p>
       <div className="wine-back">
-        <Link href="/wine" className="back-btn">
+        <Link href="/wineworld" className="back-btn">
           ← Torna alla sezione vini 
         </Link>
+        
       </div>
+      
     </div>
     </MainLayout>
   );
