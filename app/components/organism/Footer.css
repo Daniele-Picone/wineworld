@@ -64,7 +64,9 @@ footer{
   .social{
     font-size: 1.5rem;
   }
-
+    .follow , .utility {
+        font-size: 1.3rem;
+    }
  .copyright{
     font-size: 1.2rem;
     width: 90%;
