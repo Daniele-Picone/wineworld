@@ -1,6 +1,8 @@
 // pages/privacy.jsx
 import Head from 'next/head';
 import Link from 'next/link';
+import MainLayout from '../components/layouts/MainLayout';
+import './page.css';
 
 export default function Privacy() {
   return (
@@ -9,8 +11,9 @@ export default function Privacy() {
         <title>Privacy Policy - WineWorld</title>
         <meta name="description" content="Privacy Policy del sito WineWorld" />
       </Head>
-      <main style={{ fontSize:'1.5rem',  maxWidth: '800px', margin: '0 auto', padding: '2rem', fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
-        <h1>Privacy Policy di WineWorld</h1>
+      <MainLayout>
+        <main style={{ fontSize:'1.5rem',  maxWidth: '800px', margin: '0 auto', padding: '2rem', fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
+        <h1 className='policeTitle' >Privacy Policy di WineWorld</h1>
         <p><strong>Ultimo aggiornamento:</strong> 28 ottobre 2025</p>
 
         <h2>1. Titolare del trattamento</h2>
@@ -50,9 +53,8 @@ export default function Privacy() {
         <p>
           Questa policy può essere aggiornata senza preavviso. Si consiglia di controllare periodicamente la pagina per eventuali modifiche.
         </p>
-
-        <Link style={{fontSize:"1.6rem", textTransform:'uppercase', color:'blue' }} href="/" >torna alla home </Link>
       </main>
+      </MainLayout> 
     </>
   );
 }

@@ -2,7 +2,7 @@
 
 footer{
     background-color: var(--background-primary);
-    height: 100px;
+    height: auto;
     padding: 30px;
     border-top: 3px solid var(--color-primary);
     display: flex;
@@ -10,4 +10,91 @@ footer{
     justify-content: center;
     align-items: center;
     color: var(--color-primary);
+}
+
+.footerLinks{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+.footer-socials , .utility-links {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 2rem;
+} 
+.follow , .utility {
+    font-size: 1.9rem;
+    font-weight: bold;
+
+}
+.links{
+    font-size: 1.2rem;
+}
+.solcials-links{
+  display: flex;
+}
+.social{
+    font-size: 2.5rem;
+}
+.social:hover{
+    color: var(--color-secondary) ;
+}
+
+
+@media (max-width: 900px) {
+  
+  footer{
+    gap: 40px;
+    padding: 0;
+  }
+
+  .utility-links{
+    width: 50%;
+  }
+  .footer-socials{
+    width: 50%;
+    
+  }
+  .social{
+    font-size: 1.5rem;
+  }
+
+ .copyright{
+    font-size: 1.2rem;
+    width: 90%;
+    text-align: center;
+ }
+  
+}
+
+
+@media (max-width: 480px) {
+   
+  footer{
+    gap: 40px;
+    padding: 0;
+  }
+
+  .utility-links{
+    width: 50%;
+  }
+  .footer-socials{
+    width: 50%;
+    
+  }
+  .social{
+    font-size: 1.5rem;
+  }
+
+ .copyright{
+    font-size: 1.2rem;
+    width: 90%;
+     text-align: center;
+ }
 }
