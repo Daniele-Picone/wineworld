@@ -47,12 +47,21 @@ Il progetto è realizzato con **Next.js 14**, **React**, **Supabase** e **Vercel
 ### 📊 Analytics integrato
 - Vercel Analytics integrato globalmente
 
-### 👍 Sistema di Like / Dislike anonimo
-- Salvataggio reazioni anonime su Supabase
-- Protezione anti-spam tramite hash IP + localStorage
-- Conteggio like/dislike visibile sotto ogni articolo
 
----
 
-## 📂 Struttura del progetto
+🧩 Possibili estensioni future
+
+🔍 Search avanzata per articoli
+
+📚 Articoli correlati basati su contenuto
+
+🌍 Multi-lingua (i18n con next-intl)
+
+📝 Commenti anonimi o autenticati
+
+⭐ Salvataggio articoli preferiti
+
+🍇 Quiz o mini-giochi sul mondo del vino
+
+🗺️ Esplorazione vini per regione o vitigno
 
