@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🍷 WineWorld – Discover & Share the World of Wine
 
-## Getting Started
+WineWorld è una piattaforma dedicata agli appassionati di vino: articoli, approfondimenti, recensioni, curiosità e una dashboard privata per gestire i contenuti.  
+Il progetto è realizzato con **Next.js 14**, **React**, **Supabase** e **Vercel**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Frontend**
+- Next.js 14 (App Router)
+- React
+- ReactQuill (Editor ricco per gli articoli)
+- CSS custom + Tailwind (opzionale)
+- Client Components + Server Components
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Backend**
+- API Routes di Next.js
+- Supabase (Database Postgres + Auth + Storage)
+- Middleware per protezione dashboard
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Deploy**
+- Vercel
+- Vercel Analytics
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Funzionalità principali
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📰 Gestione Articoli
+- Creazione, modifica, eliminazione dei post
+- Editor avanzato con formattazione (ReactQuill)
+- Upload immagini con compressione client-side
+- Categorie: *wines*, *wineworld*, *blog*
+- SEO personalizzato per ogni articolo
+- Slug automatico
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔐 Dashboard con autenticazione
+- Login / Logout con Supabase Auth
+- Ruolo admin con funzionalità avanzate
+- Dashboard privata per gestire i contenuti
 
-## Deploy on Vercel
+### 📸 Gestione immagini ottimizzata
+- Compressione automatica delle immagini prima dell’upload
+- Storage su Supabase Bucket
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📊 Analytics integrato
+- Vercel Analytics integrato globalmente
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 👍 Sistema di Like / Dislike anonimo
+- Salvataggio reazioni anonime su Supabase
+- Protezione anti-spam tramite hash IP + localStorage
+- Conteggio like/dislike visibile sotto ogni articolo
+
+---
+
+## 📂 Struttura del progetto
+
