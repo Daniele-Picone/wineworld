@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-    domains: ['pthbieqzrsouwutnquab.supabase.co'], // aggiungi il tuo dominio Supabase
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pthbieqzrsouwutnquab.supabase.co',
+        port: '',      // lascia vuoto se non usi un porto specifico
+        pathname: '/**' // permette tutte le immagini sotto questo dominio
+      },
+    ],
   },
 };
 
