@@ -38,7 +38,7 @@ export default function footer(){
 
 
         </div>
-            <h1 className='copyright' > @2025 tutti i diritti sono rieservati alla pagina WineWordweb.it .</h1>
+            <h1 className='copyright' > @2025 tutti i diritti sono rieservati alla pagina WineWorldweb.it </h1>
         </footer>
     )
 }

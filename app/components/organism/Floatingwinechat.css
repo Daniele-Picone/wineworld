@@ -1,0 +1,13 @@
+.wewinoButton{
+width: 110px;
+}
+@media (max-width: 540px){
+       .wewinoButton{
+width: 80px;
+}
+}
+@media (max-width: 480px){
+    .wewinoButton{
+width: 80px;
+}
+}

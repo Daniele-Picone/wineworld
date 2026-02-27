@@ -6,6 +6,11 @@ import { useUser } from "@/app/context/UserContext";
 import { supabase } from "@/lib/db"; // Cambiato da @/lib/db
 import './page.css';
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+export default function RegisterPage() {
+  notFound();
+}
 
 export default function RegisterPage() {
   const { login } = useUser();
