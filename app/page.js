@@ -6,6 +6,7 @@ import WineSection from "./components/organism/WineSection";
 export const metadata = {
   title: "WineWorld",
   description: "Scopri il meraviglioso mondo del vino con WineWorld.",
+   metadataBase: new URL("https://www.wineworldweb.it"),
 };
 
 
