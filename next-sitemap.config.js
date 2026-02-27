@@ -5,7 +5,16 @@ const config = {
   sitemapSize: 7000,
   changefreq: 'weekly',
   priority: 0.7,
-  exclude: ['/admin/*', '/register','/login/*' ,'/dashboard','/dashboard/*','/api/*'],
+  exclude: [
+  '/admin/*', 
+  '/register', 
+  '/register/*',
+  '/login', 
+  '/login/*',
+  '/dashboard', 
+  '/dashboard/*',
+  '/api/*'
+],
 };
 
 export default config;
