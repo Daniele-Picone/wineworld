@@ -4,7 +4,7 @@ import './page.css';
 import Link from "next/link";
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params ;
 
   const { data: post } = await supabase
     .from("posts")
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function WineDetail({ params }) {
-  const { slug } = params;
+  const { slug } =await params;
 
 
   // Prende il singolo post dal database
