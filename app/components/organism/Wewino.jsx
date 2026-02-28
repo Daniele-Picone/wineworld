@@ -5,7 +5,16 @@ import "./Wewino.css";
 export default function WineChat() {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([
-  { sender: "bot", text: "Benvenuto! 🍷 Sono WeWino e sono il tuo assistente per gli abbinamenti di vino. Il mio obiettivo è aiutarti a scegliere il vino più adatto ai tuoi piatti, proponendo combinazioni precise e suggerimenti pratici per valorizzare ogni portata. Dicci cosa stai per gustare e iniziamo a individuare l’abbinamento ideale sia per piatti singoli che per un menù completo." }
+  { sender: "bot", text: `Benvenuto! 🍷
+     Sono WeWino, il tuo assistente esperto per gli abbinamenti cibo-vino, basato su tecnologia Google AI.
+  Il mio obiettivo è aiutarti a scovare l'etichetta perfetta, dalle denominazioni più celebri alle perle enologiche più rare.
+   Che tu stia preparando un piatto singolo o un intero menu degustazione, sono qui per guidarti.
+   Importante:
+🛡️ 1. Evita dati personali: i messaggi sono elaborati da terze parti.
+🔞 2. Servizio riservato ai maggiori di 18 anni.
+🍷 3. Bevi responsabilmente. 
+   
+   Cosa hai nel piatto oggi? Scrivimi la tua portata e iniziamo!` }
 ]);
 
   const sendMessage = async () => {
