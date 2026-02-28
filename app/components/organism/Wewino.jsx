@@ -5,7 +5,7 @@ import "./Wewino.css";
 export default function WineChat() {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([
-  { sender: "bot", text: "Benvenuto! 🍷 Sono WeWino e sono il tuo assistente per gli abbinamenti di vino. Il mio obiettivo è aiutarti a scegliere il vino più adatto ai tuoi piatti, proponendo combinazioni precise e suggerimenti pratici per valorizzare ogni portata. Dicci cosa stai per gustare e iniziamo a individuare l’abbinamento ideale." }
+  { sender: "bot", text: "Benvenuto! 🍷 Sono WeWino e sono il tuo assistente per gli abbinamenti di vino. Il mio obiettivo è aiutarti a scegliere il vino più adatto ai tuoi piatti, proponendo combinazioni precise e suggerimenti pratici per valorizzare ogni portata. Dicci cosa stai per gustare e iniziamo a individuare l’abbinamento ideale sia per piatti singoli che per un menù completo." }
 ]);
 
   const sendMessage = async () => {
@@ -56,7 +56,7 @@ export default function WineChat() {
           className="sendinput"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Cosa stai mangiando?"
+          placeholder="Cosa mangerai?"
         />
         <button
           className="sendbutton"

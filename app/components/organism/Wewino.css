@@ -65,6 +65,8 @@
     margin: 10px;
     background-color: var(--accent-olive);
     border-radius: 20px 20px 20px 0; /* angoli arrotondati */
+    line-height: 1.6;
+    white-space: pre-line; 
     
 }
 .sendarea{
