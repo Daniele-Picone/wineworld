@@ -1,8 +1,10 @@
-// app/wineworld/page.jsx
-import { supabase } from "@/lib/db";
-import Link from "next/link";
-import MainLayout from "../components/layouts/MainLayout";
-import "./page.css";
+
+
+import { supabase } from '@/lib/db';
+import Link from 'next/link';
+import MainLayout from '../components/layouts/MainLayout';
+import  './page.css';
+
 
 export async function generateMetadata() {
   return {
@@ -20,68 +22,77 @@ export async function generateMetadata() {
   };
 }
 
-export default async function WineWorldPage() {
-  // fetch lato server, senza loader
+
+
+
+export default async function WinesPage() {
   const { data: posts } = await supabase
     .from("posts")
     .select("*")
     .ilike("category", "wines")
     .order("created_at", { ascending: false });
 
+  
+
   return (
     <MainLayout>
-      <div className="winepage">
-        {/* Sezione introduttiva */}
-        <div className="winepageIntro">
-          <div className="winpageIntroContent">
-            <div className="winepagetext">
-              <h4>Avete mai sentito parlare di Terroir?</h4>
-              <p>
-                Molto spesso il termine viene tradotto dal francese come
-                “terreno”, ma nel mondo del vino il suo significato è
-                decisamente più ampio. Non riguarda soltanto la terra su cui
-                cresce la vite, bensì l’insieme di condizioni che contribuiscono
-                a definire l’identità di un vino.
-              </p>
-              <p>
-                Quando si parla di terroir si fa riferimento a fattori come il
-                tipo di suolo, il clima, l’altitudine, l’esposizione al sole e
-                le escursioni termiche. Tutti questi elementi influenzano la
-                maturazione dell’uva e incidono sugli aromi, sulla struttura e
-                sull’equilibrio finale nel calice.
-              </p>
-              {/* ... altri paragrafi ... */}
-            </div>
-            <div className="winepageimage">
-              <img src="/ilmondodelvinoimage.png" alt="WineWorld" />
-            </div>
-          </div>
-        </div>
 
-        {/* Lista articoli */}
-        <div className="postsTitle">
-          <h4>Scopri i nostri articoli</h4>
+      <div className="winepage">
+        <div className="winepageIntro">
+      
+        <div className="winpageIntroContent">
+         <div className="winepagetext">
+<h4>Avete mai pensato a come nasce un vino?</h4>
+<p>
+  Ogni bottiglia racconta una storia unica, fatta di attenzione ai dettagli e passione.<br/> Il vino prende vita dal mosto e attraversa diverse fasi, dalla fermentazione alla maturazione, fino all’imbottigliamento.
+</p>
+<p>
+  Ogni scelta in cantina — dai tempi di fermentazione alla tipologia di contenitore — influisce su aromi, struttura e personalità del vino. <br/> Anche vigneti vicini possono produrre risultati molto diversi, mostrando la ricchezza delle sfumature possibili.
+</p>
+<p>
+  L’esperienza del produttore completa il quadro: la sensibilità e il rispetto dei tempi naturali permettono al vino di esprimere il proprio carattere autentico.
+</p>
+<p>
+  In questa pagina troverete articoli dedicati a tutte le fasi della produzione, pensati per farvi scoprire il viaggio che trasforma l’uva in un calice pronto da gustare.
+</p>
+
+         </div>
+         <div className="winepageimage">
+          <img src="/ilvinoimage.png" alt="fasi di produzione del vino" />
+         </div>
         </div>
+        </div>
+       
+
+
+
+
+
+
+       <div className='postsTitle'>
+    <h4>Scopri i nostri articoli</h4>
+  </div>
+
         <div className="posts-wrapper">
-          {!posts || posts.length === 0 ? (
-            <p className="message">Nessun post disponibile.</p>
-          ) : (
-            posts.map((post) => (
-              <Link key={post.id} href={`/wineworld/${post.slug}`}>
-                <div className="post-card">
-                  <div className="card-img">
-                    <img src={post.image_url} alt={post.title} loading="lazy" />
-                  </div>
-                  <div className="card-content">
-                    <h2>{post.title}</h2>
-                  </div>
-                  <div className="card-link">
-                    <p>Leggi articolo</p>
-                  </div>
+        {(!posts || posts.length === 0) && (
+          <p className="message">Nessun post disponibile.</p>
+        )}
+
+          {posts?.map((post) => (
+            <Link key={post.id} href={`/wine/${post.slug}`}>
+              <div className="post-card">
+                <div className="card-img">
+                  <img src={post.image_url} alt={post.title} loading="lazy" />
                 </div>
-              </Link>
-            ))
-          )}
+                <div className="card-content">
+                  <h2>{post.title}</h2>
+                </div>
+                <div className="card-link">
+                  <p>Leggi articolo</p>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </MainLayout>
