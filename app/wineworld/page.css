@@ -4,7 +4,46 @@
     width: 100%;
     min-height: 100vh;
     background-color: var(--background-secondary);
-    padding: 50px 0;
+}
+.winepageIntro{
+    width: 90%;
+    margin: auto;
+}
+.winpageIntroContent{
+
+    display:flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 1.2rem;
+    padding: 3rem;
+}
+.winepagetext{
+     color: var(--text-primary);
+     font-size: 1.2rem;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.winepagetext h4{
+    font-size: 1.4rem;
+    color: var(--background-primary);
+    margin-bottom: 2rem;
+}
+.winepageimage{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.winepageimage img{
+    width: 80%;
+    border-radius: 40px;
 }
 .message{
     width: 100%;
@@ -24,17 +63,25 @@
 }
 
 /* Wrapper card */
+.postsTitle{
+     background-color: var(--table-hover);
+     height: 130px;
+     display: flex  ;
+     justify-content: center;
+     align-items: center;
+}
+.postsTitle h4{
+    font-size: 2rem;
+    color: var(--background-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
 .posts-wrapper {
-    width: 90%;
-    margin: 40px auto;
-    height: 90vh;
-    display: flex;
-    flex-wrap: wrap; /* permette di andare a capo */
-    justify-content: flex-start;
-    gap: 30px;
-    align-items: flex-start;
-    border-radius: 16px;
-    padding: 20px;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    background-color: var(--table-hover);
 }
 
 /* Card singola */
@@ -42,7 +89,7 @@
     background-color: var(--card-bg);
     border: 3px solid var(--color-primary);
     border-radius: 16px;
-    width: 390px;
+    width: 280px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
@@ -81,9 +128,9 @@
 }
 
 .card-content h2 {
-    font-size: 1.6rem;
-    text-transform: uppercase ;
-    font-weight: 700;
+    font-size: 1.5rem;
+     margin-bottom: 1rem;
+  text-align: start;
     color: var(--background-primary);
     margin-bottom: 10px;
 }
@@ -156,40 +203,75 @@
         height: auto;
         width: 100%;
     }
-
-    .posts-wrapper{
-        max-height: 100vh;
+    .winepageIntro{
         width: 100%;
-        overflow-y: auto;
-        padding: 0.3rem;
-        
     }
-    .card-img img {
-        border-radius: 15px;
+    .winepagetext{
+        font-size: 1rem;
     }
-    .post-card {
-        max-width: 170px;
-        max-height: 350px;
-        padding: 0.2rem;
-    }
-    .post-card:hover {
+ .winpageIntroContent{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column-reverse;
+    padding: 0.8rem;
+ }
+ .winepageimage{
+    width: 100%;
+   
+ }
+ .winepageimage img{
+    width: 100%;
+   
+    border-radius: 30px;
+ }
+  .posts-wrapper {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch; /* ✅ fa occupare tutta la larghezza */
+    margin-top: -30px;
+    overflow-y: auto;
+  }
+
+  .post-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.8rem;
+    border-radius: 14px;
+    height: auto; /* ✅ niente altezze forzate */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .post-card:hover {
     transform: none;
-   }
-    .card-content{
-        padding: 0.3rem 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        height: 190px;
-       
-    }
-    .card-content h2 {
-    font-size: 1rem;
+  }
+
+  .card-img img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card-content {
+    padding-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto; /* ✅ lascia respirare il contenuto */
+  }
+
+  .card-content h2 {
+    font-size: 1.05rem;
     text-transform: uppercase;
-    text-align: start;
-    margin-bottom: 4px;
-    margin-left: 1px;
-}
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+
+
 .message{
     width: 100%;
     margin-top: 6rem;

@@ -1,0 +1,65 @@
+.wewino_section {
+  padding: 5rem 2rem;
+  background-color: var(--background-secondary);
+}
+
+.wewino_content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.wewino_text {
+  flex: 1;
+}
+
+.wewino_text h2 {
+  font-size: 2.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--background-primary);
+}
+
+.wewino_text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.wewino_visual {
+  flex: 1;
+display: flex;
+justify-content: center;
+}
+
+.wewino_visual img {
+  max-width: 50%;
+  height: auto;
+}
+.wewino_note {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+
+
+@media (max-width: 480px){
+    .wewino_section{
+        padding: 0;
+        margin-top: 2.6rem;
+    }
+    .wewino_content {
+        flex-direction: column;
+        text-align: start;
+        width: 70%;
+    }
+    
+    .wewino_visual img {
+        max-width: 30%;
+    }
+}

@@ -2,8 +2,7 @@
 
 footer{
     background-color: var(--background-primary);
-    height: auto;
-    padding: 30px;
+    height: 120px;
     border-top: 3px solid var(--color-primary);
     display: flex;
     flex-direction: column;
@@ -17,7 +16,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-top: 2rem;
+    
 }
 .footer-socials , .utility-links {
     display: flex;
@@ -25,28 +24,30 @@ footer{
     width: 20%;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 2rem;
+    gap: 12px;
+    
 } 
 .follow , .utility {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     font-weight: bold;
 
 }
 .links{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .solcials-links{
   display: flex;
 }
 .social{
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 .social:hover{
     color: var(--color-secondary) ;
 }
 
-
+.copyright{
+  padding-bottom: 0.5rem;
+}
 @media (max-width: 900px) {
   
   footer{
@@ -81,6 +82,8 @@ footer{
   footer{
     gap: 40px;
     padding: 0;
+    height: auto;
+    margin-top: 2rem;
   }
 
   .utility-links{

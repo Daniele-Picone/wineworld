@@ -2,6 +2,8 @@ import Image from "next/image";
 import MainLayout from "@/app/components/layouts/MainLayout";
 import HeroSection from "@/app/components/organism/HeroSection"
 import WineSection from "./components/organism/WineSection";  
+import CardsSection from "./components/organism/CardsSection";
+import WewinoSection from "./components/organism/WewinoSection";
 
 export const metadata = {
   title: "WineWorld",
@@ -15,7 +17,9 @@ export default function Home() {
     <div>
       <MainLayout>
         <HeroSection />
-        <WineSection />
+        <CardsSection />
+        {/* <WineSection /> */}
+        <WewinoSection />
       </MainLayout>
     </div>
   );

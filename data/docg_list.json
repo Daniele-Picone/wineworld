@@ -1,0 +1,153 @@
+[
+  {
+    "region": "Abruzzo",
+    "docg": [
+      { "name": "Colline Teramane Montepulciano d'Abruzzo", "slug": "colline-teramane-montepulciano-d-abruzzo" },
+      { "name": "Terre Tollesi o Tullum", "slug": "terre-tollesi-o-tullum" },
+      { "name": "Casauria", "slug": "casauria" }
+    ]
+  },
+  {
+    "region": "Basilicata",
+    "docg": [
+      { "name": "Aglianico del Vulture Superiore", "slug": "aglianico-del-vulture-superiore" }
+    ]
+  },
+  {
+    "region": "Campania",
+    "docg": [
+      { "name": "Aglianico del Taburno", "slug": "aglianico-del-taburno" },
+      { "name": "Fiano di Avellino", "slug": "fiano-di-avellino" },
+      { "name": "Greco di Tufo", "slug": "greco-di-tufo" },
+      { "name": "Taurasi", "slug": "taurasi" }
+    ]
+  },
+  {
+    "region": "Emilia-Romagna",
+    "docg": [
+      { "name": "Colli Bolognesi Classico Pignoletto", "slug": "colli-bolognesi-classico-pignoletto" },
+      { "name": "Romagna Albana", "slug": "romagna-albana" }
+    ]
+  },
+  {
+    "region": "Friuli-Venezia Giulia",
+    "docg": [
+      { "name": "Colli Orientali del Friuli Picolit", "slug": "colli-orientali-del-friuli-picolit" },
+      { "name": "Ramandolo", "slug": "ramandolo" },
+      { "name": "Rosazzo", "slug": "rosazzo" }
+    ]
+  },
+  {
+    "region": "Lazio",
+    "docg": [
+      { "name": "Cannellino di Frascati", "slug": "cannellino-di-frascati" },
+      { "name": "Cesanese del Piglio", "slug": "cesanese-del-piglio" }
+    ]
+  },
+  {
+    "region": "Lombardia",
+    "docg": [
+      { "name": "Franciacorta", "slug": "franciacorta" },
+      { "name": "Oltrepò Pavese Metodo Classico", "slug": "oltrepo-pavese-metodo-classico" },
+      { "name": "Scanzo Moscato di Scanzo", "slug": "scanzo-moscato-di-scanzo" },
+      { "name": "Sforzato di Valtellina", "slug": "sforzato-di-valtellina" },
+      { "name": "Valtellina Superiore", "slug": "valtellina-superiore" }
+    ]
+  },
+  {
+    "region": "Marche",
+    "docg": [
+      { "name": "Castelli di Jesi Verdicchio Riserva", "slug": "castelli-di-jesi-verdicchio-riserva" },
+      { "name": "Cònero", "slug": "conero" },
+      { "name": "Offida", "slug": "offida" },
+      { "name": "Verdicchio di Matelica Riserva", "slug": "verdicchio-di-matelica-riserva" },
+      { "name": "Vernaccia di Serrapetrona", "slug": "vernaccia-di-serrapetrona" }
+    ]
+  },
+  {
+    "region": "Piemonte",
+    "docg": [
+      { "name": "Alta Langa", "slug": "alta-langa" },
+      { "name": "Asti", "slug": "asti" },
+      { "name": "Barbaresco", "slug": "barbaresco" },
+      { "name": "Barbera d’Asti", "slug": "barbera-dasti" },
+      { "name": "Barbera del Monferrato Superiore", "slug": "barbera-del-monferrato-superiore" },
+      { "name": "Barolo", "slug": "barolo" },
+      { "name": "Brachetto d’Acqui", "slug": "brachetto-dacqui" },
+      { "name": "Dogliani", "slug": "dogliani" },
+      { "name": "Dolcetto di Diano d'Alba", "slug": "dolcetto-di-diano-dalba" },
+      { "name": "Dolcetto di Ovada Superiore", "slug": "dolcetto-di-ovada-superiore" },
+      { "name": "Erbaluce di Caluso", "slug": "erbaluce-di-caluso" },
+      { "name": "Gattinara", "slug": "gattinara" },
+      { "name": "Gavi Cortese di Gavi", "slug": "gavi-cortese-di-gavi" },
+      { "name": "Ghemme", "slug": "ghemme" },
+      { "name": "Nizza", "slug": "nizza" },
+      { "name": "Roero", "slug": "roero" },
+      { "name": "Ruchè di Castagnole Monferrato", "slug": "ruche-di-castagnole-monferrato" },
+      { "name": "Terre Alfieri", "slug": "terre-alfieri" }
+    ]
+  },
+  {
+    "region": "Puglia",
+    "docg": [
+      { "name": "Castel del Monte Bombino Nero", "slug": "castel-del-monte-bombino-nero" },
+      { "name": "Castel del Monte Nero di Troia Riserva", "slug": "castel-del-monte-nero-di-troia-riserva" },
+      { "name": "Castel del Monte Rosso Riserva", "slug": "castel-del-monte-rosso-riserva" },
+      { "name": "Primitivo di Manduria Dolce Naturale", "slug": "primitivo-di-manduria-dolce-naturale" }
+    ]
+  },
+  {
+    "region": "Sardegna",
+    "docg": [
+      { "name": "Vermentino di Gallura", "slug": "vermentino-di-gallura" }
+    ]
+  },
+  {
+    "region": "Sicilia",
+    "docg": [
+      { "name": "Cerasuolo di Vittoria", "slug": "cerasuolo-di-vittoria" }
+    ]
+  },
+  {
+    "region": "Toscana",
+    "docg": [
+      { "name": "Brunello di Montalcino", "slug": "brunello-di-montalcino" },
+      { "name": "Carmignano", "slug": "carmignano" },
+      { "name": "Chianti", "slug": "chianti" },
+      { "name": "Chianti Classico", "slug": "chianti-classico" },
+      { "name": "Elba Aleatico Passito", "slug": "elba-aleatico-passito" },
+      { "name": "Montecucco Sangiovese", "slug": "montecucco-sangiovese" },
+      { "name": "Morellino di Scansano", "slug": "morellino-di-scansano" },
+      { "name": "Suvereto", "slug": "suvereto" },
+      { "name": "Val di Cornia Rosso della Val di Cornia", "slug": "val-di-cornia-rosso-della-val-di-cornia" },
+      { "name": "Vernaccia di San Gimignano", "slug": "vernaccia-di-san-gimignano" },
+      { "name": "Vino Nobile di Montepulciano", "slug": "vino-nobile-di-montepulciano" }
+    ]
+  },
+  {
+    "region": "Umbria",
+    "docg": [
+      { "name": "Montefalco Sagrantino", "slug": "montefalco-sagrantino" },
+      { "name": "Torgiano Rosso Riserva", "slug": "torgiano-rosso-riserva" }
+    ]
+  },
+  {
+    "region": "Veneto",
+    "docg": [
+      { "name": "Amarone della Valpolicella", "slug": "amarone-della-valpolicella" },
+      { "name": "Asolo Prosecco", "slug": "asolo-prosecco" },
+      { "name": "Bagnoli Friularo Friularo di Bagnoli", "slug": "bagnoli-friularo-friularo-di-bagnoli" },
+      { "name": "Bardolino Superiore", "slug": "bardolino-superiore" },
+      { "name": "Colli di Conegliano", "slug": "colli-di-conegliano" },
+      { "name": "Colli Euganei Fior d’Arancio", "slug": "colli-euganei-fior-darancio" },
+      { "name": "Conegliano Valdobbiadene Prosecco", "slug": "conegliano-valdobbiadene-prosecco" },
+      { "name": "Montello Rosso", "slug": "montello-rosso" },
+      { "name": "Piave Malanotte", "slug": "piave-malanotte" },
+      { "name": "Recioto della Valpolicella", "slug": "recioto-della-valpolicella" },
+      { "name": "Recioto di Gambellara", "slug": "recioto-di-gambellara" },
+      { "name": "Recioto di Soave", "slug": "recioto-di-soave" },
+      { "name": "Soave Superiore", "slug": "soave-superiore" },
+      { "name": "Lison", "slug": "lison" }
+    ]
+  }
+]
