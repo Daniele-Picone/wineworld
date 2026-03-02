@@ -1,78 +1,89 @@
-'use client';
+// app/wineworld/page.jsx
+import { supabase } from "@/lib/db";
+import Link from "next/link";
+import MainLayout from "../components/layouts/MainLayout";
+import "./page.css";
 
-import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/db';
-import Link from 'next/link';
-import MainLayout from '../components/layouts/MainLayout';
-import Loader from "@/app/components/molecules/Loader";
-import  './page.css';
+export async function generateMetadata() {
+  return {
+    title: " Wine || Dal mosto al calice - Scopri come nasce un vino",
+    description: "Ogni bottiglia racconta una storia unica: dal mosto alla fermentazione, fino all’imbottigliamento. Scopri le fasi della produzione e le scelte che danno carattere e aroma al vino.",
+    openGraph: {
+      title: "Wine || Dal mosto al calice - Scopri come nasce un vino",
+      description: "Approfondimenti sulle fasi della produzione del vino e sul ruolo del produttore nel definire struttura, aroma e personalità di ogni bottiglia.",
+      images: [
+        {
+          url: "/ilmondodelvinoimage.png", // immagine rappresentativa della pagina
+        },
+      ],
+    },
+  };
+}
 
-
-
-
-
-export default function WinesPage() {
-
-    
-
-
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchWines = async () => {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .ilike('category', 'wines')     // ignora maiuscole/minuscole
-
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error('Errore fetching posts:', error);
-      } else {
-        setPosts(data);
-      }
-      setLoading(false);
-    };
-
-    fetchWines();
-  }, []);
-
-  
-          if (loading) {
-            return (
-              <MainLayout>
-                <Loader></Loader>
-              </MainLayout>
-            );
-          }
+export default async function WineWorldPage() {
+  // fetch lato server, senza loader
+  const { data: posts } = await supabase
+    .from("posts")
+    .select("*")
+    .ilike("category", "wines")
+    .order("created_at", { ascending: false });
 
   return (
-    <MainLayout> 
-
-    <div className='winepage'>
-      <h1>I Vini</h1>
-      {posts.length === 0 && <p className='message' >Nessun post disponibile.</p>}
-      <div className="posts-wrapper">
-        {posts.map((post) => (
-        <Link href={`/wine/${post.slug}`}>
-            <div key={post.id} className="post-card">
-           <div className="card-img">
-             <img src={post.image_url} alt={post.title} />
-           </div>
-            <div className="card-content">
-              <h2>{post.title}</h2>
+    <MainLayout>
+      <div className="winepage">
+        {/* Sezione introduttiva */}
+        <div className="winepageIntro">
+          <div className="winpageIntroContent">
+            <div className="winepagetext">
+              <h4>Avete mai sentito parlare di Terroir?</h4>
+              <p>
+                Molto spesso il termine viene tradotto dal francese come
+                “terreno”, ma nel mondo del vino il suo significato è
+                decisamente più ampio. Non riguarda soltanto la terra su cui
+                cresce la vite, bensì l’insieme di condizioni che contribuiscono
+                a definire l’identità di un vino.
+              </p>
+              <p>
+                Quando si parla di terroir si fa riferimento a fattori come il
+                tipo di suolo, il clima, l’altitudine, l’esposizione al sole e
+                le escursioni termiche. Tutti questi elementi influenzano la
+                maturazione dell’uva e incidono sugli aromi, sulla struttura e
+                sull’equilibrio finale nel calice.
+              </p>
+              {/* ... altri paragrafi ... */}
             </div>
-           <div className="card-link">
-            <p>Leggi articolo</p>
-           </div>
+            <div className="winepageimage">
+              <img src="/ilmondodelvinoimage.png" alt="WineWorld" />
+            </div>
           </div>
-        </Link>
-        ))}
+        </div>
+
+        {/* Lista articoli */}
+        <div className="postsTitle">
+          <h4>Scopri i nostri articoli</h4>
+        </div>
+        <div className="posts-wrapper">
+          {!posts || posts.length === 0 ? (
+            <p className="message">Nessun post disponibile.</p>
+          ) : (
+            posts.map((post) => (
+              <Link key={post.id} href={`/wineworld/${post.slug}`}>
+                <div className="post-card">
+                  <div className="card-img">
+                    <img src={post.image_url} alt={post.title} loading="lazy" />
+                  </div>
+                  <div className="card-content">
+                    <h2>{post.title}</h2>
+                  </div>
+                  <div className="card-link">
+                    <p>Leggi articolo</p>
+                  </div>
+                </div>
+              </Link>
+            ))
+          )}
+        </div>
       </div>
-    </div>
-     </MainLayout>
+    </MainLayout>
   );
 }
