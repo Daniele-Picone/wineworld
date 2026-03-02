@@ -13,7 +13,7 @@ export async function generateMetadata() {
       description: "Approfondimenti sulle fasi della produzione del vino e sul ruolo del produttore nel definire struttura, aroma e personalità di ogni bottiglia.",
       images: [
         {
-          url: "/ilmondodelvinoimage.png", // immagine rappresentativa della pagina
+          url: "/ilvinoimage.png", // immagine rappresentativa della pagina
         },
       ],
     },
