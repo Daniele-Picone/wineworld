@@ -21,12 +21,12 @@ export default function CardsSection() {
       img: "/ilvinoimage.png",
       link: "/wine"
     },
-    {
-      title: "La deguastazione",
-      desc: "Guida pratica alla degustazione e consigli dei sommelier.",
-      img: "/degustazioneimage.png",
-      link: "#"
-    },
+    // {
+    //   title: "La deguastazione",
+    //   desc: "Guida pratica alla degustazione e consigli dei sommelier.",
+    //   img: "/degustazioneimage.png",
+    //   link: "#"
+    // },
   ];
 
   return (
