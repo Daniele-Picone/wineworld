@@ -11,8 +11,7 @@ export async function generateMetadata() {
       "Scopri articoli dedicati al vino, al terroir e alle infinite sfumature che definiscono ogni bottiglia.",
     openGraph: {
       title: "WineWorld - Il mondo del vino",
-      description:
-        "Approfondimenti sul terroir, sul vino e il dietro le quinte della produzione.",
+      description: "Approfondimenti sul terroir, sul vino e il dietro le quinte della produzione.",
       images: [{ url: "/ilmondodelvinoimage.png" }],
     },
   };
