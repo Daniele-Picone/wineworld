@@ -4,8 +4,7 @@ import './page.css';
 import Link from "next/link";
 
 export async function generateMetadata({ params }) {
-  const resolvedParams = await params; // <-- risolvi la promise
-  const { slug } = resolvedParams;
+  const { slug } = await params;
 
   const { data: post } = await supabase
     .from("posts")
