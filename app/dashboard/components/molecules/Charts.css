@@ -3,7 +3,7 @@
 .chart_container {
     background: linear-gradient(135deg, var(--card-bg) 0%, var(--background-secondary) 100%);
     min-height: 8rem;
-    width: 100%;
+    width: 95%;
     max-width: 26rem;
     padding: 1.5rem;
     border-radius: 16px;

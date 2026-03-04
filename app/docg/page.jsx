@@ -1,9 +1,13 @@
 // app/docg/page.jsx
 import docgList from '../../data/docg_list.json';
 import Link from 'next/link';
+import MainLayout from '../components/layouts/MainLayout';
 
 export default function DocgPage() {
   return (
+    <MainLayout>
+
+
     <div style={{ padding: '2rem', maxWidth: '900px', margin: '0 auto', fontFamily: 'sans-serif' }}>
       <h1 style={{ color: '#7a2f2f', marginBottom: '2rem', fontSize: '2.5rem', textAlign: 'center' }}>
         DOCG Italiane
@@ -36,5 +40,6 @@ export default function DocgPage() {
         </section>
       ))}
     </div>
+      </MainLayout>
   );
 }

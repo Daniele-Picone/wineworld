@@ -11,14 +11,18 @@
   grid-template-columns: 12rem 1fr ;
 }
 .dashboard-content{
-  width: 90vw;
+  width: 100%;
   margin: auto;
   padding: 2rem;
+  
 }
 
 .mainContent{
   width: 100%;
- 
+   display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 

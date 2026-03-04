@@ -4,7 +4,7 @@
   height: 90vh; /* altezza fissa della pagina */
   overflow-y: auto; /* scroll verticale */
   padding: 0; /* togli padding per usare tutta la larghezza */
-  width: 100%;
+  width: 70%;
   box-sizing: border-box; /* include padding e border nel calcolo larghezza */
   gap: 40px; /* spazio tra le sezioni */
 }
@@ -61,14 +61,14 @@
 }
 
 .analyse {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   margin-top: 60px;
   background-color: var(--table-row-even);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box; /* importante */
 }
 .dashboard h3{
