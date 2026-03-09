@@ -39,11 +39,7 @@ export default function EditPostPage() {
   // 🔹 Carica il post esistente
   useEffect(() => {
     const fetchPost = async () => {
-      const { data, error } = await supabase
-        .from("posts")
-        .select("*")
-        .eq("id", id)
-        .single();
+      const { data, error } = await supabase.from("posts").select("*").eq("id", id).single();
 
       if (error) console.error("Errore caricamento:", error);
       setPost(data);

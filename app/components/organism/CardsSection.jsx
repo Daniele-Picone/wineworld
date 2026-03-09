@@ -33,7 +33,7 @@ export default function CardsSection() {
    
 <section id="cards_section">
   <div className='cardsTitle'>
-    <h3>Scopri le nostre categorie</h3>
+    <h2>Scopri le nostre categorie</h2>
   </div>
   <div className="cards_container">
     {cards.map((card, i) => (

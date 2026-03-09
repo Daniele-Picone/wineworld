@@ -9,6 +9,7 @@ footer{
     justify-content: center;
     align-items: center;
     color: var(--color-primary);
+
 }
 
 .footerLinks{
@@ -84,6 +85,7 @@ footer{
     padding: 0;
     height: auto;
     margin-top: 2rem;
+    padding-top: 3rem;
   }
 
   .utility-links{

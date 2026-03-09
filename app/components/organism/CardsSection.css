@@ -73,6 +73,8 @@
     #cards_section{
         padding: 0;
         margin-top: 2.6rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
     .card{
       width: 90%;

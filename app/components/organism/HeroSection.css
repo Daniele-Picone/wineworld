@@ -30,6 +30,7 @@
 .intro_content h1{
     font-size: 3rem;
     color: var(--background-primary);
+    font-weight: 400;
 
 }
 .intro_content p {
