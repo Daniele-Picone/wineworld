@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function  Header(){
     return(
         <header className="header" >
-            <div className="logo"><Link href='/' ><h1>WineWorld</h1></Link> </div>
+            <div className="logo"><Link href='/' ><h2>WineWorld</h2></Link> </div>
             <NavLinks/>
         </header>
     )

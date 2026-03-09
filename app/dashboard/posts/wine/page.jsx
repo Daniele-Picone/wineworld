@@ -20,12 +20,7 @@ export default function WinesDashboardPage() {
   useEffect(() => {
     const fetchWines = async () => {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('posts')
-        .select('*')
-        .ilike('category', 'wines')     // ignora maiuscole/minuscole
-
-        .order('created_at', { ascending: false });
+      const { data, error } = await supabase.from('posts').select('*').ilike('category', 'wines').order('created_at', { ascending: false });
 
       if (error) {
         console.error('Errore fetching posts:', error);

@@ -5,7 +5,7 @@ import DashboardLayout from "../../../components/layout/dashboardLayout";
 
 
 export default async function WineDetail({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
 
 
   // Prende il singolo post dal database
