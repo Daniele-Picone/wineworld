@@ -10,7 +10,6 @@ import DashboardLayout from "../components/layout/dashboardLayout";
 import { supabase } from "@/lib/db";
 import Loader from "@/app/components/molecules/Loader";
 
-// Import dinamico per evitare errori SSR
 const ReactQuill = dynamic(
   async () => {
     const { default: RQ } = await import("react-quill-new");
@@ -41,7 +40,7 @@ export default function PostForm() {
     }
   }, [user]);
 
-  // Configurazione toolbar completa + clipboard per liste corrette
+  // ✅ modules con pulizia clipboard da Word/Google Docs
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -51,24 +50,35 @@ export default function PostForm() {
       ["clean"],
     ],
     clipboard: {
-      matchVisual: false, // evita div malformati da copia/incolla
+      matchVisual: false,
+      matchers: typeof window !== "undefined"
+        ? [
+            [
+              Node.ELEMENT_NODE,
+              (node, delta) => {
+                delta.ops = delta.ops.map((op) => {
+                  if (op.attributes) {
+                    delete op.attributes.color;
+                    delete op.attributes.background;
+                    delete op.attributes.font;
+                    delete op.attributes.size;
+                    delete op.attributes.width;
+                  }
+                  return op;
+                });
+                return delta;
+              },
+            ],
+          ]
+        : [],
     },
   };
 
   const formats = [
-    "header",
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "list",
-    "bullet",
-    "link",
-    "image",
-    "video",
+    "header", "bold", "italic", "underline", "strike",
+    "list", "bullet", "link", "image", "video",
   ];
 
-  // Funzione compressione immagine lato client
   const compressImage = async (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -117,7 +127,6 @@ export default function PostForm() {
     });
   };
 
-  // Gestione selezione immagine
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -135,14 +144,12 @@ export default function PostForm() {
       const originalSize = file.size;
       const compressedFile = await compressImage(file);
       const compressedSize = compressedFile.size;
-
       const reduction = ((1 - compressedSize / originalSize) * 100).toFixed(1);
+
       setImage(compressedFile);
       setImagePreview(URL.createObjectURL(compressedFile));
       setMessage(
-        `✅ Immagine ottimizzata: ${(originalSize / 1024 / 1024).toFixed(
-          2
-        )}MB → ${(compressedSize / 1024 / 1024).toFixed(2)}MB (-${reduction}%)`
+        `✅ Immagine ottimizzata: ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(compressedSize / 1024 / 1024).toFixed(2)}MB (-${reduction}%)`
       );
     } catch (err) {
       console.error(err);
@@ -152,7 +159,6 @@ export default function PostForm() {
     }
   };
 
-  // Submit post
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -165,23 +171,18 @@ export default function PostForm() {
     }
 
     try {
-      // Pulizia HTML con DOMPurify
-      const cleanContent = DOMPurify.sanitize(content, {
-        ALLOWED_TAGS: [
-          "p",
-          "br",
-          "strong",
-          "em",
-          "u",
-          "strike",
-          "ol",
-          "ul",
-          "li",
-          "a",
-          "img",
-        ],
+      const sanitized = DOMPurify.sanitize(content, {
+        ALLOWED_TAGS: ["p", "br", "strong", "em", "u", "strike", "ol", "ul", "li", "a", "img"],
         ALLOWED_ATTR: ["href", "src", "alt", "title"],
       });
+
+      // ✅ Rimuove soft hyphens inseriti automaticamente da Quill
+      const cleanContent = sanitized
+        .replace(/&shy;/g, '')
+        .replace(/\u00AD/g, '')
+        .replace(/&nbsp;/g, ' ')      // ✅ rimuove spazi non breaking da Word
+        .replace(/\u00A0/g, ' ');     // ✅ rimuove &nbsp; in formato unicode
+        ;
 
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
@@ -189,7 +190,7 @@ export default function PostForm() {
 
       const formData = new FormData();
       formData.append("title", title);
-      formData.append("content", cleanContent); // SALVA CONTENUTO SANITIZZATO
+      formData.append("content", cleanContent);
       formData.append("category", category);
       if (image) formData.append("image", image);
 
@@ -202,7 +203,6 @@ export default function PostForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Errore server");
 
-      // Reset form
       setTitle("");
       setContent("");
       setCategory(isAdmin ? "wines" : "blog");
@@ -218,7 +218,6 @@ export default function PostForm() {
     }
   };
 
-  // Cleanup URL preview
   useEffect(() => {
     return () => {
       if (imagePreview) URL.revokeObjectURL(imagePreview);

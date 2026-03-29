@@ -3,13 +3,13 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
 import dynamic from "next/dynamic";
+import DOMPurify from "isomorphic-dompurify";
 import { supabase } from "@/lib/db";
 import DashboardLayout from "../../../components/layout/dashboardLayout";
 import Loader from "@/app/components/molecules/Loader";
 import "react-quill-new/dist/quill.snow.css";
 import "./page.css";
 
-// ✅ Import dinamico per ReactQuill (evita errori SSR)
 const ReactQuill = dynamic(
   async () => {
     const { default: RQ } = await import("react-quill-new");
@@ -36,71 +36,68 @@ export default function EditPostPage() {
 
   const categories = ["wines", "wineworld", "blog"];
 
-  // 🔹 Carica il post esistente
+  // ✅ Modules con pulizia clipboard da Word/Google Docs
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+    clipboard: {
+      matchVisual: false,
+      matchers: typeof window !== "undefined"
+        ? [
+            [
+              Node.ELEMENT_NODE,
+              (node, delta) => {
+                delta.ops = delta.ops.map((op) => {
+                  if (op.attributes) {
+                    delete op.attributes.color;
+                    delete op.attributes.background;
+                    delete op.attributes.font;
+                    delete op.attributes.size;
+                    delete op.attributes.width;
+                  }
+                  return op;
+                });
+                return delta;
+              },
+            ],
+          ]
+        : [],
+    },
+  };
+
+  const formats = [
+    "header", "bold", "italic", "underline", "strike",
+    "list", "bullet", "link", "image", "video",
+  ];
+
   useEffect(() => {
     const fetchPost = async () => {
       const { data, error } = await supabase.from("posts").select("*").eq("id", id).single();
-
       if (error) console.error("Errore caricamento:", error);
       setPost(data);
       setLoading(false);
     };
-
     fetchPost();
   }, [id]);
 
-  // 🧪 Test bucket all'avvio (DEBUG)
-  useEffect(() => {
-    const testBucket = async () => {
-      try {
-        // Test 1: Lista buckets
-        const { data: buckets, error: bucketsError } = await supabase.storage.listBuckets();
-        console.log("📦 Buckets disponibili:", buckets?.map(b => b.name || b.id));
-        console.log("❌ Errore buckets:", bucketsError);
-        
-        // Test 2: Verifica bucket specifico 'posts'
-        const { data: files, error: filesError } = await supabase.storage
-          .from('posts')
-          .list('images');
-        console.log("📁 Files in posts/images:", files);
-        console.log("❌ Errore files:", filesError);
-        
-        // Test 3: Verifica sessione
-        const { data: { session } } = await supabase.auth.getSession();
-        console.log("👤 Utente autenticato:", session?.user?.email);
-        console.log("🔑 Token presente:", !!session?.access_token);
-      } catch (err) {
-        console.error("❌ Errore test bucket:", err);
-      }
-    };
-
-    if (!loading && post) {
-      testBucket();
-    }
-  }, [loading, post]);
-
-  /**
-   * 🗜️ Funzione di compressione lato client
-   */
   const compressImage = async (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      
       reader.onload = (e) => {
         const img = new Image();
-        
         img.onload = () => {
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
-          
-          // 📐 Dimensioni massime
           const MAX_WIDTH = 1200;
           const MAX_HEIGHT = 1200;
-          
           let width = img.width;
           let height = img.height;
-          
-          // Calcola proporzioni mantenendo aspect ratio
+
           if (width > height) {
             if (width > MAX_WIDTH) {
               height *= MAX_WIDTH / width;
@@ -112,59 +109,41 @@ export default function EditPostPage() {
               height = MAX_HEIGHT;
             }
           }
-          
+
           canvas.width = width;
           canvas.height = height;
-          
-          // Disegna l'immagine ridimensionata
           ctx.drawImage(img, 0, 0, width, height);
-          
-          // 📦 Converti in blob con qualità ridotta
+
           canvas.toBlob(
             (blob) => {
               if (blob) {
-                // Crea un nuovo File object
                 const compressedFile = new File(
                   [blob],
                   file.name.replace(/\.\w+$/, ".jpg"),
-                  {
-                    type: "image/jpeg",
-                    lastModified: Date.now(),
-                  }
+                  { type: "image/jpeg", lastModified: Date.now() }
                 );
                 resolve(compressedFile);
-              } else {
-                reject(new Error("Errore nella compressione"));
-              }
+              } else reject(new Error("Errore nella compressione"));
             },
             "image/jpeg",
-            0.8 // 80% qualità
+            0.8
           );
         };
-        
         img.onerror = () => reject(new Error("Errore nel caricamento immagine"));
         img.src = e.target.result;
       };
-      
       reader.onerror = () => reject(new Error("Errore nella lettura del file"));
       reader.readAsDataURL(file);
     });
   };
 
-  /**
-   * 📁 Gestisce la selezione e compressione del file
-   */
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
-    // Verifica che sia un'immagine
     if (!file.type.startsWith("image/")) {
       setMessage("❌ Seleziona un file immagine valido");
       return;
     }
-
-    // Verifica dimensione originale (max 10MB)
     if (file.size > 10 * 1024 * 1024) {
       setMessage("❌ L'immagine è troppo grande (max 10MB)");
       return;
@@ -173,20 +152,12 @@ export default function EditPostPage() {
     try {
       setCompressing(true);
       const originalSize = file.size;
-      
-      // 🗜️ Comprimi l'immagine
       const compressedFile = await compressImage(file);
       const compressedSize = compressedFile.size;
-      
-      // Calcola riduzione percentuale
       const reduction = ((1 - compressedSize / originalSize) * 100).toFixed(1);
-      
+
       setNewImage(compressedFile);
-      
-      // Crea preview
-      const preview = URL.createObjectURL(compressedFile);
-      setImagePreview(preview);
-      
+      setImagePreview(URL.createObjectURL(compressedFile));
       setMessage(
         `✅ Immagine ottimizzata: ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(compressedSize / 1024 / 1024).toFixed(2)}MB (-${reduction}%)`
       );
@@ -198,43 +169,39 @@ export default function EditPostPage() {
     }
   };
 
-  // 🔹 Gestione salvataggio modifiche
   const handleSave = async (e) => {
     e.preventDefault();
     setMessage("");
     setSaving(true);
 
     try {
+      // ✅ Sanitizza e rimuove soft hyphens
+   const sanitized = DOMPurify.sanitize(post.content, {
+  ALLOWED_TAGS: ["p", "br", "strong", "em", "u", "strike", "ol", "ul", "li", "a", "img"],
+  ALLOWED_ATTR: ["href", "src", "alt", "title", "data-list", "class"],  // ✅ aggiunto class
+});
+
+     const cleanContent = sanitized
+        .replace(/&shy;/g, '')
+        .replace(/\u00AD/g, '')
+        .replace(/&nbsp;/g, ' ')      // ✅ rimuove spazi non breaking da Word
+        .replace(/\u00A0/g, ' ');     // ✅ rimuove &nbsp; in formato unicode
+        ;
+
       const updates = {
         title: post.title,
-        content: post.content,
+        content: cleanContent,
         category: post.category,
       };
 
-      // 🔹 Se l'utente ha caricato una nuova immagine (già compressa)
       if (newImage) {
-        console.log("🚀 Inizio upload immagine...");
-        console.log("📄 File:", {
-          name: newImage.name,
-          type: newImage.type,
-          size: `${(newImage.size / 1024 / 1024).toFixed(2)}MB`
-        });
-
-        // Verifica sessione
         const { data: { session } } = await supabase.auth.getSession();
-        console.log("🔐 Sessione:", {
-          user: session?.user?.email,
-          hasToken: !!session?.access_token
-        });
-
         if (!session?.access_token) {
           throw new Error("Sessione non valida. Effettua nuovamente il login.");
         }
 
         const fileName = `${Date.now()}_${newImage.name}`;
-        console.log("📤 Upload del file in posts/images/:", fileName);
 
-        // ✅ Upload nella cartella 'images' del bucket 'posts'
         const { data: uploadData, error: imgError } = await supabase.storage
           .from("posts")
           .upload(`images/${fileName}`, newImage, {
@@ -242,48 +209,31 @@ export default function EditPostPage() {
             upsert: false
           });
 
-        if (imgError) {
-          console.error("❌ Errore upload dettagliato:", {
-            message: imgError.message,
-            statusCode: imgError.statusCode,
-            error: imgError
-          });
-          throw new Error(`Upload fallito: ${imgError.message}`);
-        }
+        if (imgError) throw new Error(`Upload fallito: ${imgError.message}`);
 
-        console.log("✅ Upload completato:", uploadData);
-
-        // ✅ Ottieni URL pubblico dalla cartella images
         const { data: urlData } = supabase.storage
           .from("posts")
           .getPublicUrl(`images/${fileName}`);
-        
+
         updates.image_url = urlData.publicUrl;
-        console.log("🔗 URL pubblico:", urlData.publicUrl);
       }
 
-      console.log("💾 Salvataggio updates:", updates);
       const { error } = await supabase.from("posts").update(updates).eq("id", id);
       if (error) throw error;
 
       setMessage("✅ Articolo aggiornato con successo!");
-      setTimeout(() => {
-        router.push(`/dashboard`);
-      }, 1500);
+      setTimeout(() => router.push("/dashboard"), 1500);
     } catch (err) {
-      console.error("❌ Errore completo:", err);
+      console.error("❌ Errore:", err);
       setMessage(`❌ ${err.message}`);
     } finally {
       setSaving(false);
     }
   };
 
-  // 🧹 Cleanup preview URL
   useEffect(() => {
     return () => {
-      if (imagePreview) {
-        URL.revokeObjectURL(imagePreview);
-      }
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
     };
   }, [imagePreview]);
 
@@ -308,21 +258,18 @@ export default function EditPostPage() {
           required
         />
 
-        <label>Categoria</label>  
+        <label>Categoria</label>
         <select
           value={post.category}
           onChange={(e) => setPost({ ...post, category: e.target.value })}
         >
           {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
+            <option key={cat} value={cat}>{cat}</option>
           ))}
         </select>
 
         <label>Immagine principale</label>
         <div className="image-upload-section">
-          {/* Mostra immagine corrente se non c'è preview */}
           {!imagePreview && post.image_url && (
             <div className="image-preview current-image">
               <p className="image-label">📸 Immagine attuale:</p>
@@ -330,7 +277,6 @@ export default function EditPostPage() {
             </div>
           )}
 
-          {/* Mostra nuova immagine compressa */}
           {imagePreview && (
             <div className="image-preview new-image">
               <p className="image-label">🆕 Nuova immagine (compressa):</p>
@@ -340,9 +286,7 @@ export default function EditPostPage() {
                 onClick={() => {
                   setNewImage(null);
                   setImagePreview(null);
-                  if (fileInputRef.current) {
-                    fileInputRef.current.value = "";
-                  }
+                  if (fileInputRef.current) fileInputRef.current.value = "";
                   setMessage("");
                 }}
                 className="remove-image-btn"
@@ -359,7 +303,6 @@ export default function EditPostPage() {
             onChange={handleImageChange}
             disabled={compressing}
           />
-          
           {compressing && <p className="compressing-text">🗜️ Compressione in corso...</p>}
         </div>
 
@@ -369,6 +312,8 @@ export default function EditPostPage() {
           value={post.content}
           onChange={(val) => setPost({ ...post, content: val })}
           placeholder="Modifica il contenuto dell'articolo..."
+          modules={modules}
+          formats={formats}
         />
 
         <div className="form-buttons">

@@ -3,7 +3,6 @@ import MainLayout from "@/app/components/layouts/MainLayout";
 import Link from "next/link";
 import './page.css';
 
-// ✅ Meta dinamici
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
@@ -27,32 +26,29 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.title,
       description: post.content.slice(0, 160),
-      images: post.image_url
-        ? [
-            {
-              url: post.image_url,
-              width: 1200,
-              height: 630,
-              alt: post.title,
-            },
-          ]
-        : [],
+      images: post.image_url ? [{ url: post.image_url, width: 1200, height: 630, alt: post.title }] : [],
     },
   };
 }
 
-// Funzione per stimare minuti di lettura
 function estimateReadingTime(text) {
-  const wordsPerMinute = 200; // media
+  const wordsPerMinute = 200;
   const words = text.split(/\s+/).length;
   return Math.ceil(words / wordsPerMinute);
 }
 
-// ✅ Pagina dettaglio post
+// ✅ Rimuove soft hyphens e stili inline che causano spezzatura delle parole
+function cleanContent(html) {
+  return html
+    .replace(/&shy;/g, '')
+    .replace(/\u00AD/g, '')
+    .replace(/style="[^"]*word-break[^"]*"/gi, '')
+    .replace(/style="[^"]*hyphens[^"]*"/gi, '');
+}
+
 export default async function WineDetail({ params }) {
   const { slug } = await params;
 
-  // Recupera il post
   const { data: post, error } = await supabase.from("posts").select("*").eq("slug", slug).single();
 
   if (error || !post) {
@@ -66,11 +62,12 @@ export default async function WineDetail({ params }) {
     );
   }
 
-  // Stima minuti di lettura
   const readingTime = estimateReadingTime(post.content);
 
-  // Articoli correlati
-  const { data: relatedPosts } = await supabase.from("posts").select("id, title, slug, image_url").eq("category", post.category).neq("id", post.id).limit(3).order("created_at", { ascending: false });
+  const { data: relatedPosts } = await supabase
+    .from("posts").select("id, title, slug, image_url")
+    .eq("category", post.category).neq("id", post.id).limit(3)
+    .order("created_at", { ascending: false });
 
   return (
     <MainLayout>
@@ -87,9 +84,10 @@ export default async function WineDetail({ params }) {
           </div>
         )}
 
+        {/* ✅ cleanContent applicato qui */}
         <div
           className="wine-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: cleanContent(post.content) }}
         />
 
         <div className="wine-back">
@@ -121,14 +119,3 @@ export default async function WineDetail({ params }) {
     </MainLayout>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
