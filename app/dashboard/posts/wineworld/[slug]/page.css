@@ -41,31 +41,35 @@
   object-fit: cover;
 }
 
-/* Contenuto */
+/* Contenuto principale */
 .wine-content {
   font-size: 1.15rem;
   line-height: 1.9;
   color: #333;
   margin-bottom: 30px;
   font-family: 'Lora', serif;
+
+  /* 🔥 FIX GLOBALI */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-/* Fix contenuti HTML dinamici */
-.wine-content img {
+/* 🔥 FIX UNIVERSALE per contenuti dinamici */
+.wine-content * {
   max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Testo */
+.wine-content p {
+  margin-bottom: 16px;
 }
 
 .wine-content h2,
 .wine-content h3 {
   margin-top: 25px;
   margin-bottom: 10px;
-}
-
-.wine-content p {
-  margin-bottom: 16px;
 }
 
 .wine-content ul,
@@ -78,6 +82,43 @@
   margin-bottom: 8px;
 }
 
+/* Immagini dentro contenuto */
+.wine-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Link lunghi */
+.wine-content a {
+  word-break: break-all;
+}
+
+/* Codice */
+.wine-content pre,
+.wine-content code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+/* Tabelle */
+.wine-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.wine-content td,
+.wine-content th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
 /* Autore */
 .wine-author {
   color: #7a6f6f;
@@ -86,7 +127,7 @@
   text-align: right;
 }
 
-/* Bottoni container */
+/* Bottoni */
 .wine-back {
   display: flex;
   justify-content: space-between;
@@ -94,7 +135,6 @@
   margin-top: 20px;
 }
 
-/* Bottone indietro */
 .back-btn {
   display: inline-block;
   background-color: #8b0000;
@@ -109,7 +149,6 @@
   background-color: #a00000;
 }
 
-/* Bottone modifica */
 .edit-btn {
   padding: 8px 16px;
   background-color: var(--color-secondary);
@@ -127,7 +166,7 @@
   opacity: 0.8;
 }
 
-/* 📱 Tablet */
+/* Tablet */
 @media screen and (max-width: 768px) {
   .wine-detail {
     padding: 25px;
@@ -139,7 +178,7 @@
   }
 }
 
-/* 📱 Mobile */
+/* Mobile */
 @media screen and (max-width: 480px) {
   .wine-detail {
     width: 100%;
@@ -156,6 +195,7 @@
   .wine-content {
     font-size: 1rem;
     text-align: left;
+    overflow-x: hidden;
   }
 
   .wine-back {
