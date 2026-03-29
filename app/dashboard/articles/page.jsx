@@ -1,23 +1,22 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import { useUser } from "@/app/context/UserContext";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
+import DOMPurify from "isomorphic-dompurify";
 import "./page.css";
 import DashboardLayout from "../components/layout/dashboardLayout";
 import { supabase } from "@/lib/db";
 import Loader from "@/app/components/molecules/Loader";
 
-// ✅ CRITICAL: Import dinamico per evitare errori SSR
+// Import dinamico per evitare errori SSR
 const ReactQuill = dynamic(
   async () => {
     const { default: RQ } = await import("react-quill-new");
     return RQ;
   },
-  { 
-    ssr: false,
-    loading: () => <div>Loading...</div>
-  }
+  { ssr: false, loading: () => <div>Loading editor...</div> }
 );
 
 export default function PostForm() {
@@ -42,92 +41,90 @@ export default function PostForm() {
     }
   }, [user]);
 
-  /**
-   * 🎯 Funzione di compressione lato client
-   */
+  // Configurazione toolbar completa + clipboard per liste corrette
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+    clipboard: {
+      matchVisual: false, // evita div malformati da copia/incolla
+    },
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "list",
+    "bullet",
+    "link",
+    "image",
+    "video",
+  ];
+
+  // Funzione compressione immagine lato client
   const compressImage = async (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      
       reader.onload = (e) => {
         const img = new Image();
-        
         img.onload = () => {
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
-          
-          // 📐 Dimensioni massime
           const MAX_WIDTH = 1200;
           const MAX_HEIGHT = 1200;
-          
           let width = img.width;
           let height = img.height;
-          
-          // Calcola proporzioni mantenendo aspect ratio
-          if (width > height) {
-            if (width > MAX_WIDTH) {
-              height *= MAX_WIDTH / width;
-              width = MAX_WIDTH;
-            }
-          } else {
-            if (height > MAX_HEIGHT) {
-              width *= MAX_HEIGHT / height;
-              height = MAX_HEIGHT;
-            }
+
+          if (width > height && width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          } else if (height > width && height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
           }
-          
+
           canvas.width = width;
           canvas.height = height;
-          
-          // Disegna l'immagine ridimensionata
           ctx.drawImage(img, 0, 0, width, height);
-          
-          // 📦 Converti in blob con qualità ridotta
+
           canvas.toBlob(
             (blob) => {
               if (blob) {
-                // Crea un nuovo File object
                 const compressedFile = new File(
                   [blob],
                   file.name.replace(/\.\w+$/, ".jpg"),
-                  {
-                    type: "image/jpeg",
-                    lastModified: Date.now(),
-                  }
+                  { type: "image/jpeg", lastModified: Date.now() }
                 );
                 resolve(compressedFile);
-              } else {
-                reject(new Error("Errore nella compressione"));
-              }
+              } else reject(new Error("Errore compressione"));
             },
             "image/jpeg",
-            0.8 // 80% qualità
+            0.8
           );
         };
-        
-        img.onerror = () => reject(new Error("Errore nel caricamento immagine"));
+        img.onerror = () => reject(new Error("Errore caricamento immagine"));
         img.src = e.target.result;
       };
-      
-      reader.onerror = () => reject(new Error("Errore nella lettura del file"));
+      reader.onerror = () => reject(new Error("Errore lettura file"));
       reader.readAsDataURL(file);
     });
   };
 
-  /**
-   * 📁 Gestisce la selezione e compressione del file
-   */
+  // Gestione selezione immagine
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
-    // Verifica che sia un'immagine
     if (!file.type.startsWith("image/")) {
       setMessage("❌ Seleziona un file immagine valido");
       return;
     }
-
-    // Verifica dimensione originale (max 10MB)
     if (file.size > 10 * 1024 * 1024) {
       setMessage("❌ L'immagine è troppo grande (max 10MB)");
       return;
@@ -136,22 +133,16 @@ export default function PostForm() {
     try {
       setCompressing(true);
       const originalSize = file.size;
-      
-      // 🗜️ Comprimi l'immagine
       const compressedFile = await compressImage(file);
       const compressedSize = compressedFile.size;
-      
-      // Calcola riduzione percentuale
+
       const reduction = ((1 - compressedSize / originalSize) * 100).toFixed(1);
-      
       setImage(compressedFile);
-      
-      // Crea preview
-      const preview = URL.createObjectURL(compressedFile);
-      setImagePreview(preview);
-      
+      setImagePreview(URL.createObjectURL(compressedFile));
       setMessage(
-        `✅ Immagine ottimizzata: ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(compressedSize / 1024 / 1024).toFixed(2)}MB (-${reduction}%)`
+        `✅ Immagine ottimizzata: ${(originalSize / 1024 / 1024).toFixed(
+          2
+        )}MB → ${(compressedSize / 1024 / 1024).toFixed(2)}MB (-${reduction}%)`
       );
     } catch (err) {
       console.error(err);
@@ -161,6 +152,7 @@ export default function PostForm() {
     }
   };
 
+  // Submit post
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -173,41 +165,51 @@ export default function PostForm() {
     }
 
     try {
+      // Pulizia HTML con DOMPurify
+      const cleanContent = DOMPurify.sanitize(content, {
+        ALLOWED_TAGS: [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "u",
+          "strike",
+          "ol",
+          "ul",
+          "li",
+          "a",
+          "img",
+        ],
+        ALLOWED_ATTR: ["href", "src", "alt", "title"],
+      });
+
       const { data: { session } } = await supabase.auth.getSession();
       const token = session?.access_token;
       if (!token) throw new Error("Utente non autenticato");
 
       const formData = new FormData();
       formData.append("title", title);
-      formData.append("content", content);
+      formData.append("content", cleanContent); // SALVA CONTENUTO SANITIZZATO
       formData.append("category", category);
-      if (image) {
-        formData.append("image", image); // 🎯 Invia l'immagine già compressa
-      }
+      if (image) formData.append("image", image);
 
       const res = await fetch("/api/posts", {
         method: "POST",
         body: formData,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Errore server");
 
+      // Reset form
       setTitle("");
       setContent("");
       setCategory(isAdmin ? "wines" : "blog");
       setImage(null);
       setImagePreview(null);
-      
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-
+      if (fileInputRef.current) fileInputRef.current.value = "";
       setMessage(`✅ ${data.message}`);
-
     } catch (err) {
       console.error(err);
       setMessage(`❌ Errore durante la pubblicazione: ${err.message}`);
@@ -216,22 +218,15 @@ export default function PostForm() {
     }
   };
 
-  // 🧹 Cleanup preview URL
+  // Cleanup URL preview
   useEffect(() => {
     return () => {
-      if (imagePreview) {
-        URL.revokeObjectURL(imagePreview);
-      }
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
     };
   }, [imagePreview]);
 
-  if (!user) {
-    return <Loader />;
-  }
-
-  if (loading) {
-    return <Loader />;
-  }
+  if (!user) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <DashboardLayout>
@@ -255,9 +250,7 @@ export default function PostForm() {
             onChange={handleImageChange}
             disabled={compressing}
           />
-          
           {compressing && <p className="compressing-text">🗜️ Compressione in corso...</p>}
-          
           {imagePreview && (
             <div className="image-preview">
               <img src={imagePreview} alt="Preview" />
@@ -266,9 +259,7 @@ export default function PostForm() {
                 onClick={() => {
                   setImage(null);
                   setImagePreview(null);
-                  if (fileInputRef.current) {
-                    fileInputRef.current.value = "";
-                  }
+                  if (fileInputRef.current) fileInputRef.current.value = "";
                   setMessage("");
                 }}
                 className="remove-image-btn"
@@ -297,6 +288,8 @@ export default function PostForm() {
           value={content}
           onChange={setContent}
           placeholder="Scrivi qui il tuo contenuto..."
+          modules={modules}
+          formats={formats}
         />
 
         <button type="submit" disabled={loading || compressing}>

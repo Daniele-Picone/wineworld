@@ -9,11 +9,7 @@ export default async function WineDetail({ params }) {
 
 
   // Prende il singolo post dal database
-  const { data: post, error } = await supabase
-    .from("posts")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  const { data: post, error } = await supabase.from("posts").select("*").eq("slug", slug).single();
 
   if (error || !post) {
     return (
