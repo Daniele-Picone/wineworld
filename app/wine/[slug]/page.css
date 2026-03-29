@@ -59,12 +59,31 @@
   margin-bottom: 30px;
   font-family: 'Merriweather', serif;
 
-  word-break: break-word;
+
+}
+.wine-content * {
+  word-break: keep-all;
   overflow-wrap: break-word;
+  hyphens: none;
+  white-space: normal;
+}
+
+
+.wine-content ul li,
+.wine-content ol li,
+.wine-content ul li ul li {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.wine-content ol li {
+  list-style-type: decimal;
 }
 
 .wine-content p {
-  margin-bottom: 1.2rem;
+ margin-bottom: 1.2rem;
+
 }
 
 .wine-content img {
@@ -153,6 +172,9 @@
 
   .wine-detail h1 {
     font-size: 1.8rem;
+  }
+  .wine-content {
+    font-size: 0.9rem;
   }
 
   .related-wrapper {
