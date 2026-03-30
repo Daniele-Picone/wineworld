@@ -1,0 +1,221 @@
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Immagine */
+.imageWrapper {
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--card-shadow);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.imageBadge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background-color: var(--background-primary);
+  color: var(--color-primary);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+/* Titolo */
+.title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--background-primary);
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.titleBadge {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--background-primary);
+  color: var(--color-primary);
+  padding: 0.2rem 0.7rem;
+  border-radius: 6px;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+}
+
+/* Quick Info */
+.quickInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quickInfoItem {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 6px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.quickInfoLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.quickInfoValue {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--background-primary);
+}
+
+/* Descrizione */
+.descriptionBox {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  border-left: 5px solid var(--background-primary);
+  box-shadow: 0 2px 10px var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.descriptionTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--background-primary);
+  margin-bottom: 0.8rem;
+}
+
+.description {
+  font-family: 'Merriweather', serif;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: var(--gray-dark);
+}
+
+/* Disciplinare */
+.disciplinare {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  border-left: 5px solid var(--color-secondary);
+  box-shadow: 0 2px 10px var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.disciplinareTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--background-primary);
+  margin-bottom: 0.5rem;
+}
+
+.disciplinareText {
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  color: var(--gray-dark);
+  margin-bottom: 1.2rem;
+}
+
+.disciplinareActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnView,
+.btnDownload {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btnView {
+  background-color: var(--background-secondary);
+  color: var(--background-primary);
+  border: 2px solid var(--background-primary);
+}
+
+.btnView:hover {
+  background-color: var(--background-primary);
+  color: var(--color-primary);
+}
+
+.btnDownload {
+  background-color: var(--background-primary);
+  color: var(--color-primary);
+  border: 2px solid var(--background-primary);
+}
+
+.btnDownload:hover {
+  background-color: var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+}
+
+/* Not found */
+.notFound {
+  font-family: 'Merriweather', serif;
+  padding: 3rem;
+  text-align: center;
+  color: var(--gray-medium);
+  font-size: 1.1rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .quickInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .descriptionBox,
+  .disciplinare {
+    padding: 1.2rem 1rem;
+  }
+
+  .disciplinareActions {
+    flex-direction: column;
+  }
+
+  .btnView,
+  .btnDownload {
+    text-align: center;
+  }
+}

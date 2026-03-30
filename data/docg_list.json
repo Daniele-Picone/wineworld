@@ -1,153 +1,991 @@
+
 [
   {
     "region": "Abruzzo",
     "docg": [
-      { "name": "Colline Teramane Montepulciano d'Abruzzo", "slug": "colline-teramane-montepulciano-d-abruzzo" },
-      { "name": "Terre Tollesi o Tullum", "slug": "terre-tollesi-o-tullum" },
-      { "name": "Casauria", "slug": "casauria" }
+      {
+        "name": "Colline Teramane Montepulciano d'Abruzzo",
+        "slug": "colline-teramane-montepulciano-d-abruzzo",
+        "description": "Vino rosso strutturato, tipico della zona Teramo, con ottima longevità.",
+        "image": "/images/docg/colline-teramane-montepulciano-d-abruzzo.jpg",
+        "quickInfo": {
+          "vitigno": "Montepulciano",
+          "colore": "Rosso rubino",
+          "invecchiamento": "18 mesi",
+          "disciplinare": "/pdf/disciplinari/colline.pdf"
+        }
+      },
+      {
+        "name": "Terre Tollesi o Tullum",
+        "slug": "terre-tollesi-o-tullum",
+        "description": "Vino rosso e corposo tipico della zona di Tollo, in Abruzzo.",
+        "image": "/images/docg/terre-tollesi-o-tullum.jpg",
+        "quickInfo": {
+          "vitigno": "Montepulciano",
+          "colore": "Rosso intenso",
+          "invecchiamento": "12 mesi",
+          "disciplinare": "/pdf/disciplinari/terre-tollesi-o-tullum.pdf"
+        }
+      },
+      {
+        "name": "Casauria",
+        "slug": "casauria",
+        "description": "Vino DOCG dolce tipico della zona, ottimo come vino da meditazione.",
+        "image": "/images/docg/casauria.jpg",
+        "quickInfo": {
+          "vitigno": "Trebbiano",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "6 mesi",
+          "disciplinare": "/pdf/disciplinari/casauria.pdf"
+        }
+      }
     ]
   },
   {
     "region": "Basilicata",
     "docg": [
-      { "name": "Aglianico del Vulture Superiore", "slug": "aglianico-del-vulture-superiore" }
+      {
+        "name": "Aglianico del Vulture Superiore",
+        "slug": "aglianico-del-vulture-superiore",
+        "description": "Vino rosso intenso, corposo e longevo della Basilicata.",
+        "image": "/images/docg/aglianico-del-vulture-superiore.jpg",
+        "quickInfo": {
+          "vitigno": "Aglianico",
+          "colore": "Rosso granato",
+          "invecchiamento": "24 mesi",
+          "disciplinare": "/pdf/disciplinari/aglianico-del-vulture.pdf"
+        }
+      }
     ]
   },
   {
     "region": "Campania",
     "docg": [
-      { "name": "Aglianico del Taburno", "slug": "aglianico-del-taburno" },
-      { "name": "Fiano di Avellino", "slug": "fiano-di-avellino" },
-      { "name": "Greco di Tufo", "slug": "greco-di-tufo" },
-      { "name": "Taurasi", "slug": "taurasi" }
-    ]
-  },
-  {
-    "region": "Emilia-Romagna",
-    "docg": [
-      { "name": "Colli Bolognesi Classico Pignoletto", "slug": "colli-bolognesi-classico-pignoletto" },
-      { "name": "Romagna Albana", "slug": "romagna-albana" }
-    ]
-  },
-  {
-    "region": "Friuli-Venezia Giulia",
-    "docg": [
-      { "name": "Colli Orientali del Friuli Picolit", "slug": "colli-orientali-del-friuli-picolit" },
-      { "name": "Ramandolo", "slug": "ramandolo" },
-      { "name": "Rosazzo", "slug": "rosazzo" }
-    ]
-  },
-  {
-    "region": "Lazio",
-    "docg": [
-      { "name": "Cannellino di Frascati", "slug": "cannellino-di-frascati" },
-      { "name": "Cesanese del Piglio", "slug": "cesanese-del-piglio" }
-    ]
-  },
-  {
-    "region": "Lombardia",
-    "docg": [
-      { "name": "Franciacorta", "slug": "franciacorta" },
-      { "name": "Oltrepò Pavese Metodo Classico", "slug": "oltrepo-pavese-metodo-classico" },
-      { "name": "Scanzo Moscato di Scanzo", "slug": "scanzo-moscato-di-scanzo" },
-      { "name": "Sforzato di Valtellina", "slug": "sforzato-di-valtellina" },
-      { "name": "Valtellina Superiore", "slug": "valtellina-superiore" }
-    ]
-  },
-  {
-    "region": "Marche",
-    "docg": [
-      { "name": "Castelli di Jesi Verdicchio Riserva", "slug": "castelli-di-jesi-verdicchio-riserva" },
-      { "name": "Cònero", "slug": "conero" },
-      { "name": "Offida", "slug": "offida" },
-      { "name": "Verdicchio di Matelica Riserva", "slug": "verdicchio-di-matelica-riserva" },
-      { "name": "Vernaccia di Serrapetrona", "slug": "vernaccia-di-serrapetrona" }
-    ]
-  },
-  {
-    "region": "Piemonte",
-    "docg": [
-      { "name": "Alta Langa", "slug": "alta-langa" },
-      { "name": "Asti", "slug": "asti" },
-      { "name": "Barbaresco", "slug": "barbaresco" },
-      { "name": "Barbera d’Asti", "slug": "barbera-dasti" },
-      { "name": "Barbera del Monferrato Superiore", "slug": "barbera-del-monferrato-superiore" },
-      { "name": "Barolo", "slug": "barolo" },
-      { "name": "Brachetto d’Acqui", "slug": "brachetto-dacqui" },
-      { "name": "Dogliani", "slug": "dogliani" },
-      { "name": "Dolcetto di Diano d'Alba", "slug": "dolcetto-di-diano-dalba" },
-      { "name": "Dolcetto di Ovada Superiore", "slug": "dolcetto-di-ovada-superiore" },
-      { "name": "Erbaluce di Caluso", "slug": "erbaluce-di-caluso" },
-      { "name": "Gattinara", "slug": "gattinara" },
-      { "name": "Gavi Cortese di Gavi", "slug": "gavi-cortese-di-gavi" },
-      { "name": "Ghemme", "slug": "ghemme" },
-      { "name": "Nizza", "slug": "nizza" },
-      { "name": "Roero", "slug": "roero" },
-      { "name": "Ruchè di Castagnole Monferrato", "slug": "ruche-di-castagnole-monferrato" },
-      { "name": "Terre Alfieri", "slug": "terre-alfieri" }
-    ]
-  },
-  {
-    "region": "Puglia",
-    "docg": [
-      { "name": "Castel del Monte Bombino Nero", "slug": "castel-del-monte-bombino-nero" },
-      { "name": "Castel del Monte Nero di Troia Riserva", "slug": "castel-del-monte-nero-di-troia-riserva" },
-      { "name": "Castel del Monte Rosso Riserva", "slug": "castel-del-monte-rosso-riserva" },
-      { "name": "Primitivo di Manduria Dolce Naturale", "slug": "primitivo-di-manduria-dolce-naturale" }
-    ]
-  },
-  {
-    "region": "Sardegna",
-    "docg": [
-      { "name": "Vermentino di Gallura", "slug": "vermentino-di-gallura" }
-    ]
-  },
-  {
-    "region": "Sicilia",
-    "docg": [
-      { "name": "Cerasuolo di Vittoria", "slug": "cerasuolo-di-vittoria" }
-    ]
-  },
-  {
-    "region": "Toscana",
-    "docg": [
-      { "name": "Brunello di Montalcino", "slug": "brunello-di-montalcino" },
-      { "name": "Carmignano", "slug": "carmignano" },
-      { "name": "Chianti", "slug": "chianti" },
-      { "name": "Chianti Classico", "slug": "chianti-classico" },
-      { "name": "Elba Aleatico Passito", "slug": "elba-aleatico-passito" },
-      { "name": "Montecucco Sangiovese", "slug": "montecucco-sangiovese" },
-      { "name": "Morellino di Scansano", "slug": "morellino-di-scansano" },
-      { "name": "Suvereto", "slug": "suvereto" },
-      { "name": "Val di Cornia Rosso della Val di Cornia", "slug": "val-di-cornia-rosso-della-val-di-cornia" },
-      { "name": "Vernaccia di San Gimignano", "slug": "vernaccia-di-san-gimignano" },
-      { "name": "Vino Nobile di Montepulciano", "slug": "vino-nobile-di-montepulciano" }
-    ]
-  },
-  {
-    "region": "Umbria",
-    "docg": [
-      { "name": "Montefalco Sagrantino", "slug": "montefalco-sagrantino" },
-      { "name": "Torgiano Rosso Riserva", "slug": "torgiano-rosso-riserva" }
-    ]
-  },
-  {
-    "region": "Veneto",
-    "docg": [
-      { "name": "Amarone della Valpolicella", "slug": "amarone-della-valpolicella" },
-      { "name": "Asolo Prosecco", "slug": "asolo-prosecco" },
-      { "name": "Bagnoli Friularo Friularo di Bagnoli", "slug": "bagnoli-friularo-friularo-di-bagnoli" },
-      { "name": "Bardolino Superiore", "slug": "bardolino-superiore" },
-      { "name": "Colli di Conegliano", "slug": "colli-di-conegliano" },
-      { "name": "Colli Euganei Fior d’Arancio", "slug": "colli-euganei-fior-darancio" },
-      { "name": "Conegliano Valdobbiadene Prosecco", "slug": "conegliano-valdobbiadene-prosecco" },
-      { "name": "Montello Rosso", "slug": "montello-rosso" },
-      { "name": "Piave Malanotte", "slug": "piave-malanotte" },
-      { "name": "Recioto della Valpolicella", "slug": "recioto-della-valpolicella" },
-      { "name": "Recioto di Gambellara", "slug": "recioto-di-gambellara" },
-      { "name": "Recioto di Soave", "slug": "recioto-di-soave" },
-      { "name": "Soave Superiore", "slug": "soave-superiore" },
-      { "name": "Lison", "slug": "lison" }
+      {
+        "name": "Aglianico del Taburno",
+        "slug": "aglianico-del-taburno",
+        "description": "Vino rosso intenso e strutturato, tipico della zona del Taburno.",
+        "image": "/images/docg/aglianico-del-taburno.jpg",
+        "quickInfo": {
+          "vitigno": "Aglianico",
+          "colore": "Rosso rubino",
+          "invecchiamento": "18 mesi",
+          "disciplinare": "/pdf/disciplinari/aglianico-del-taburno.pdf"
+        }
+      },
+      {
+        "name": "Fiano di Avellino",
+        "slug": "fiano-di-avellino",
+        "description": "Vino bianco aromatico e fresco della Campania, ideale con pesce.",
+        "image": "/images/docg/fiano-di-avellino.jpg",
+        "quickInfo": {
+          "vitigno": "Fiano",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "6 mesi",
+          "disciplinare": "/pdf/disciplinari/fiano-di-avellino.pdf"
+        }
+      },
+      {
+        "name": "Greco di Tufo",
+        "slug": "greco-di-tufo",
+        "description": "Vino bianco elegante e minerale, tipico della Campania.",
+        "image": "/images/docg/greco-di-tufo.jpg",
+        "quickInfo": {
+          "vitigno": "Greco",
+          "colore": "Giallo dorato",
+          "invecchiamento": "6 mesi",
+          "disciplinare": "/pdf/disciplinari/greco-di-tufo.pdf"
+        }
+      },
+      {
+        "name": "Taurasi",
+        "slug": "taurasi",
+        "description": "Vino rosso strutturato e complesso, simbolo della Campania.",
+        "image": "/images/docg/taurasi.jpg",
+        "quickInfo": {
+          "vitigno": "Aglianico",
+          "colore": "Rosso rubino intenso",
+          "invecchiamento": "36 mesi",
+          "disciplinare": "/pdf/disciplinari/taurasi.pdf"
+        }
+      }
     ]
   }
+,
+ {
+    "region": "Emilia-Romagna",
+    "docg": [
+      {
+        "name": "Colli Bolognesi Classico Pignoletto",
+        "slug": "colli-bolognesi-classico-pignoletto",
+        "description": "Vino bianco fresco e vivace, simbolo dei colli bolognesi.",
+        "image": "/images/docg/colli-bolognesi-classico-pignoletto.jpg",
+        "quickInfo": {
+          "vitigno": "Grechetto Gentile (Pignoletto)",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "6 mesi",
+          "disciplinare": "/pdf/disciplinari/pignoletto.pdf"
+        }
+      },
+      {
+        "name": "Romagna Albana",
+        "slug": "romagna-albana",
+        "description": "Prima DOCG bianca in Italia, versatile dal secco al passito.",
+        "image": "/images/docg/romagna-albana.jpg",
+        "quickInfo": {
+          "vitigno": "Albana",
+          "colore": "Giallo dorato/ambra",
+          "invecchiamento": "Variabile",
+          "disciplinare": "/pdf/disciplinari/romagna-albana.pdf"
+        }
+      }
+    ]
+  },
+ {
+    "region": "Friuli-Venezia Giulia",
+    "docg": [
+      {
+        "name": "Colli Orientali del Friuli Picolit",
+        "slug": "colli-orientali-del-friuli-picolit",
+        "description": "Prezioso vino da meditazione, rarità enologica friulana.",
+        "image": "/images/docg/colli-orientali-del-friuli-picolit.jpg",
+        "quickInfo": {
+          "vitigno": "Picolit",
+          "colore": "Giallo dorato",
+          "invecchiamento": "12 mesi",
+          "disciplinare": "/pdf/disciplinari/picolit.pdf"
+        }
+      },
+      {
+        "name": "Ramandolo",
+        "slug": "ramandolo",
+        "description": "Vino bianco dolce e vellutato, prodotto sui colli di Nimis.",
+        "image": "/images/docg/ramandolo.jpg",
+        "quickInfo": {
+          "vitigno": "Verduzzo Friulano",
+          "colore": "Giallo dorato intenso",
+          "invecchiamento": "Non previsto min.",
+          "disciplinare": "/pdf/disciplinari/ramandolo.pdf"
+        }
+      },
+      {
+        "name": "Rosazzo",
+        "slug": "rosazzo",
+        "description": "Bianco di grande eleganza e struttura proveniente dai Colli Orientali.",
+        "image": "/images/docg/rosazzo.jpg",
+        "quickInfo": {
+          "vitigno": "Friulano, Sauvignon, Pinot Bianco",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "10 mesi",
+          "disciplinare": "/pdf/disciplinari/rosazzo.pdf"
+        }
+      }
+    ]
+  },
+{
+    "region": "Lazio",
+    "docg": [
+      {
+        "name": "Cannellino di Frascati",
+        "slug": "cannellino-di-frascati",
+        "description": "Vino bianco dolce tipico dei Castelli Romani, ideale con la pasticceria.",
+        "image": "/images/docg/cannellino-di-frascati.jpg",
+        "quickInfo": {
+          "vitigno": "Malvasia di Candia",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "Non previsto min.",
+          "disciplinare": "/pdf/disciplinari/cannellino-frascati.pdf"
+        }
+      },
+      {
+        "name": "Cesanese del Piglio",
+        "slug": "cesanese-del-piglio",
+        "description": "Il principale rosso del Lazio, strutturato e con sentori di bosco.",
+        "image": "/images/docg/cesanese-del-piglio.jpg",
+        "quickInfo": {
+          "vitigno": "Cesanese di Affile",
+          "colore": "Rosso rubino",
+          "invecchiamento": "20 mesi (Riserva)",
+          "disciplinare": "/pdf/disciplinari/cesanese-piglio.pdf"
+        }
+      }
+    ]
+  },
+{
+    "region": "Lombardia",
+    "docg": [
+      {
+        "name": "Franciacorta",
+        "slug": "franciacorta",
+        "description": "Metodo Classico d'eccellenza, famoso in tutto il mondo per eleganza.",
+        "image": "/images/docg/franciacorta.jpg",
+        "quickInfo": {
+          "vitigno": "Chardonnay, Pinot Nero",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "18-60 mesi",
+          "disciplinare": "/pdf/disciplinari/franciacorta.pdf"
+        }
+      },
+      {
+        "name": "Oltrepò Pavese Metodo Classico",
+        "slug": "oltrepo-pavese-metodo-classico",
+        "description": "Spumante di alta qualità basato sulla vocazione del Pinot Nero.",
+        "image": "/images/docg/oltrepo-pavese.jpg",
+        "quickInfo": {
+          "vitigno": "Pinot Nero",
+          "colore": "Paglierino / Rosato",
+          "invecchiamento": "15-24 mesi",
+          "disciplinare": "/pdf/disciplinari/oltrepo.pdf"
+        }
+      },
+      {
+        "name": "Scanzo Moscato di Scanzo",
+        "slug": "scanzo-moscato-di-scanzo",
+        "description": "Raro moscato rosso passito, dolce e di grande carattere.",
+        "image": "/images/docg/moscato-scanzo.jpg",
+        "quickInfo": {
+          "vitigno": "Moscato di Scanzo",
+          "colore": "Rosso rubino carico",
+          "invecchiamento": "24 mesi",
+          "disciplinare": "/pdf/disciplinari/scanzo.pdf"
+        }
+      },
+      {
+        "name": "Sforzato di Valtellina",
+        "slug": "sforzato-di-valtellina",
+        "description": "Vino rosso ottenuto da uve Nebbiolo appassite, potente e caldo.",
+        "image": "/images/docg/sforzato.jpg",
+        "quickInfo": {
+          "vitigno": "Nebbiolo (Chiavennasca)",
+          "colore": "Rosso granato",
+          "invecchiamento": "20 mesi",
+          "disciplinare": "/pdf/disciplinari/sforzato.pdf"
+        }
+      },
+      {
+        "name": "Valtellina Superiore",
+        "slug": "valtellina-superiore",
+        "description": "Rosso elegante prodotto sui terrazzamenti eroici della Valtellina.",
+        "image": "/images/docg/valtellina-superiore.jpg",
+        "quickInfo": {
+          "vitigno": "Nebbiolo",
+          "colore": "Rosso rubino",
+          "invecchiamento": "24 mesi",
+          "disciplinare": "/pdf/disciplinari/valtellina-sup.pdf"
+        }
+      }
+    ]
+  },
+{
+    "region": "Marche",
+    "docg": [
+      {
+        "name": "Castelli di Jesi Verdicchio Riserva",
+        "slug": "castelli-di-jesi-verdicchio-riserva",
+        "description": "Uno dei bianchi più longevi d'Italia, complesso e minerale.",
+        "image": "/images/docg/jesi-verdicchio.jpg",
+        "quickInfo": {
+          "vitigno": "Verdicchio",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "18 mesi",
+          "disciplinare": "/pdf/disciplinari/jesi.pdf"
+        }
+      },
+      {
+        "name": "Cònero",
+        "slug": "conero",
+        "description": "Rosso importante prodotto sulle pendici dell'omonimo monte.",
+        "image": "/images/docg/conero.jpg",
+        "quickInfo": {
+          "vitigno": "Montepulciano",
+          "colore": "Rosso rubino",
+          "invecchiamento": "24 mesi",
+          "disciplinare": "/pdf/disciplinari/conero.pdf"
+        }
+      },
+      {
+        "name": "Offida",
+        "slug": "offida",
+        "description": "Denominazione che esalta il Pecorino, la Passerina e il Rosso del Piceno.",
+        "image": "/images/docg/offida.jpg",
+        "quickInfo": {
+          "vitigno": "Pecorino / Passerina / Montepulciano",
+          "colore": "Bianco o Rosso",
+          "invecchiamento": "Variabile",
+          "disciplinare": "/pdf/disciplinari/offida.pdf"
+        }
+      },
+      {
+        "name": "Verdicchio di Matelica Riserva",
+        "slug": "verdicchio-di-matelica-riserva",
+        "description": "Verdicchio di montagna, caratterizzato da grande freschezza e sapidità.",
+        "image": "/images/docg/matelica-verdicchio.jpg",
+        "quickInfo": {
+          "vitigno": "Verdicchio",
+          "colore": "Giallo paglierino",
+          "invecchiamento": "18 mesi",
+          "disciplinare": "/pdf/disciplinari/matelica.pdf"
+        }
+      },
+      {
+        "name": "Vernaccia di Serrapetrona",
+        "slug": "vernaccia-di-serrapetrona",
+        "description": "Unico spumante rosso DOCG a subire tre fermentazioni.",
+        "image": "/images/docg/vernaccia-serrapetrona.jpg",
+        "quickInfo": {
+          "vitigno": "Vernaccia Nera",
+          "colore": "Rosso granato",
+          "invecchiamento": "Non previsto min.",
+          "disciplinare": "/pdf/disciplinari/serrapetrona.pdf"
+        }
+      }
+    ]
+  },
+  {
+  "region": "Piemonte",
+  "docg": [
+    {
+      "name": "Alta Langa",
+      "slug": "alta-langa",
+      "description": "Prestigioso spumante Metodo Classico millesimato, orgoglio della spumantistica piemontese.",
+      "image": "/images/docg/alta-langa.jpg",
+      "quickInfo": {
+        "vitigno": "Pinot Nero e Chardonnay",
+        "colore": "Giallo paglierino / Rosato",
+        "invecchiamento": "30 mesi",
+        "disciplinare": "/pdf/disciplinari/alta-langa.pdf"
+      }
+    },
+    {
+      "name": "Asti",
+      "slug": "asti",
+      "description": "Nelle versioni Asti Spumante e Moscato d'Asti, è il vino dolce aromatico più conosciuto al mondo.",
+      "image": "/images/docg/asti.jpg",
+      "quickInfo": {
+        "vitigno": "Moscato Bianco",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/asti.pdf"
+      }
+    },
+    {
+      "name": "Barbaresco",
+      "slug": "barbaresco",
+      "description": "Vino nobile e austero, condivide con il Barolo l'anima del Nebbiolo ma con un'eleganza propria.",
+      "image": "/images/docg/barbaresco.jpg",
+      "quickInfo": {
+        "vitigno": "Nebbiolo",
+        "colore": "Rosso granato",
+        "invecchiamento": "26 mesi",
+        "disciplinare": "/pdf/disciplinari/barbaresco.pdf"
+      }
+    },
+    {
+      "name": "Barbera d’Asti",
+      "slug": "barbera-dasti",
+      "description": "Un classico del Monferrato, un rosso di grande carattere, freschezza e bevibilità.",
+      "image": "/images/docg/barbera-dasti.jpg",
+      "quickInfo": {
+        "vitigno": "Barbera",
+        "colore": "Rosso rubino",
+        "invecchiamento": "4 mesi",
+        "disciplinare": "/pdf/disciplinari/barbera-dasti.pdf"
+      }
+    },
+    {
+      "name": "Barbera del Monferrato Superiore",
+      "slug": "barbera-del-monferrato-superiore",
+      "description": "Versione strutturata della Barbera del Monferrato, con affinamento obbligatorio in legno.",
+      "image": "/images/docg/barbera-del-monferrato-superiore.jpg",
+      "quickInfo": {
+        "vitigno": "Barbera",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "14 mesi",
+        "disciplinare": "/pdf/disciplinari/barbera-monferrato.pdf"
+      }
+    },
+    {
+      "name": "Barolo",
+      "slug": "barolo",
+      "description": "Il Barolo DOCG è uno dei grandi vini rossi italiani, prodotto in Piemonte da uve Nebbiolo. Strutturato ed elegante, è famoso per la sua longevità.",
+      "image": "/images/docg/barolo.jpg",
+      "quickInfo": {
+        "vitigno": "Nebbiolo",
+        "colore": "Rosso granato",
+        "invecchiamento": "38 mesi",
+        "disciplinare": "/pdf/disciplinari/barolo.pdf"
+      }
+    },
+    {
+      "name": "Brachetto d’Acqui",
+      "slug": "brachetto-dacqui",
+      "description": "Vino rosso dolce, aromatico e delicato, perfetto per accompagnare dessert ai frutti rossi.",
+      "image": "/images/docg/brachetto-dacqui.jpg",
+      "quickInfo": {
+        "vitigno": "Brachetto",
+        "colore": "Rosso rubino tenue",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/brachetto.pdf"
+      }
+    },
+    {
+      "name": "Dogliani",
+      "slug": "dogliani",
+      "description": "L'espressione più strutturata e intensa del vitigno Dolcetto nel cuore delle Langhe.",
+      "image": "/images/docg/dogliani.jpg",
+      "quickInfo": {
+        "vitigno": "Dolcetto",
+        "colore": "Rosso rubino profondo",
+        "invecchiamento": "12 mesi (versione Superiore)",
+        "disciplinare": "/pdf/disciplinari/dogliani.pdf"
+      }
+    },
+    {
+      "name": "Dolcetto di Diano d'Alba",
+      "slug": "dolcetto-di-diano-dalba",
+      "description": "Prodotto in un'area limitata ricca di 'sorì', i versanti meglio esposti al sole.",
+      "image": "/images/docg/dolcetto-diano.jpg",
+      "quickInfo": {
+        "vitigno": "Dolcetto",
+        "colore": "Rosso rubino",
+        "invecchiamento": "10 mesi (versione Superiore)",
+        "disciplinare": "/pdf/disciplinari/dolcetto-diano.pdf"
+      }
+    },
+    {
+      "name": "Dolcetto di Ovada Superiore",
+      "slug": "dolcetto-di-ovada-superiore",
+      "description": "Un Dolcetto austero e longevo proveniente dall'alto Monferrato.",
+      "image": "/images/docg/dolcetto-ovada.jpg",
+      "quickInfo": {
+        "vitigno": "Dolcetto",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "12-24 mesi",
+        "disciplinare": "/pdf/disciplinari/dolcetto-ovada.pdf"
+      }
+    },
+    {
+      "name": "Erbaluce di Caluso",
+      "slug": "erbaluce-di-caluso",
+      "description": "Bianco versatile prodotto nel Canavese, eccezionale sia secco che come passito.",
+      "image": "/images/docg/erbaluce-caluso.jpg",
+      "quickInfo": {
+        "vitigno": "Erbaluce",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "Non previsto (secco) / 36 mesi (passito)",
+        "disciplinare": "/pdf/disciplinari/erbaluce.pdf"
+      }
+    },
+    {
+      "name": "Gattinara",
+      "slug": "gattinara",
+      "description": "Nebbiolo dell'alto Piemonte cresciuto su suoli vulcanici, minerale e longevo.",
+      "image": "/images/docg/gattinara.jpg",
+      "quickInfo": {
+        "vitigno": "Nebbiolo (Spanna)",
+        "colore": "Rosso granato",
+        "invecchiamento": "35 mesi",
+        "disciplinare": "/pdf/disciplinari/gattinara.pdf"
+      }
+    },
+    {
+      "name": "Gavi Cortese di Gavi",
+      "slug": "gavi-cortese-di-gavi",
+      "description": "Il grande bianco piemontese dell'alessandrino, secco, fresco ed elegante.",
+      "image": "/images/docg/gavi.jpg",
+      "quickInfo": {
+        "vitigno": "Cortese",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "6 mesi (Riserva)",
+        "disciplinare": "/pdf/disciplinari/gavi.pdf"
+      }
+    },
+    {
+      "name": "Ghemme",
+      "slug": "ghemme",
+      "description": "Vino rosso potente dell'alto Piemonte, noto per la sua longevità ed eleganza.",
+      "image": "/images/docg/ghemme.jpg",
+      "quickInfo": {
+        "vitigno": "Nebbiolo (Spanna)",
+        "colore": "Rosso granato",
+        "invecchiamento": "34 mesi",
+        "disciplinare": "/pdf/disciplinari/ghemme.pdf"
+      }
+    },
+    {
+      "name": "Nizza",
+      "slug": "nizza",
+      "description": "La massima espressione del vitigno Barbera in una zona altamente vocata.",
+      "image": "/images/docg/nizza.jpg",
+      "quickInfo": {
+        "vitigno": "Barbera",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "18 mesi",
+        "disciplinare": "/pdf/disciplinari/nizza.pdf"
+      }
+    },
+    {
+      "name": "Roero",
+      "slug": "roero",
+      "description": "Denominazione che comprende sia l'elegante Nebbiolo che il fresco bianco Arneis.",
+      "image": "/images/docg/roero.jpg",
+      "quickInfo": {
+        "vitigno": "Nebbiolo (Rosso) / Arneis (Bianco)",
+        "colore": "Rosso granato / Giallo paglierino",
+        "invecchiamento": "20 mesi (Rosso) / 4 mesi (Arneis)",
+        "disciplinare": "/pdf/disciplinari/roero.pdf"
+      }
+    },
+    {
+      "name": "Ruchè di Castagnole Monferrato",
+      "slug": "ruche-di-castagnole-monferrato",
+      "description": "Vino rosso unico per le sue note aromatiche di rosa appassita e spezie.",
+      "image": "/images/docg/ruche.jpg",
+      "quickInfo": {
+        "vitigno": "Ruchè",
+        "colore": "Rosso rubino non troppo carico",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/ruche.pdf"
+      }
+    },
+    {
+      "name": "Terre Alfieri",
+      "slug": "terre-alfieri",
+      "description": "DOCG recente che celebra l'eccellenza dell'Arneis e del Nebbiolo tra Asti e Cuneo.",
+      "image": "/images/docg/terre-alfieri.jpg",
+      "quickInfo": {
+        "vitigno": "Arneis / Nebbiolo",
+        "colore": "Paglierino / Rosso rubino",
+        "invecchiamento": "6 mesi (Arneis) / 12 mesi (Nebbiolo)",
+        "disciplinare": "/pdf/disciplinari/terre-alfieri.pdf"
+      }
+    }
+  ]
+},
+ {
+  "region": "Puglia",
+  "docg": [
+    {
+      "name": "Castel del Monte Bombino Nero",
+      "slug": "castel-del-monte-bombino-nero",
+      "description": "Un rosato unico, fresco e fruttato, ottenuto dal vitigno Bombino Nero nell'area del celebre castello federiciano.",
+      "image": "/images/docg/castel-del-monte-bombino-nero.jpg",
+      "quickInfo": {
+        "vitigno": "Bombino Nero",
+        "colore": "Rosa cerasuolo",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/castel-del-monte-bombino.pdf"
+      }
+    },
+    {
+      "name": "Castel del Monte Nero di Troia Riserva",
+      "slug": "castel-del-monte-nero-di-troia-riserva",
+      "description": "Rosso di grande struttura e nobiltà, celebra la potenza tannica ed elegante del Nero di Troia.",
+      "image": "/images/docg/castel-del-monte-nero-di-troia-riserva.jpg",
+      "quickInfo": {
+        "vitigno": "Nero di Troia",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "24 mesi",
+        "disciplinare": "/pdf/disciplinari/castel-del-monte-nero-troia.pdf"
+      }
+    },
+    {
+      "name": "Castel del Monte Rosso Riserva",
+      "slug": "castel-del-monte-rosso-riserva",
+      "description": "Vino rosso complesso e longevo, espressione storica del territorio murgiano.",
+      "image": "/images/docg/castel-del-monte-rosso-riserva.jpg",
+      "quickInfo": {
+        "vitigno": "Nero di Troia e altri",
+        "colore": "Rosso rubino con riflessi granati",
+        "invecchiamento": "24 mesi",
+        "disciplinare": "/pdf/disciplinari/castel-del-monte-rosso-riserva.pdf"
+      }
+    },
+    {
+      "name": "Primitivo di Manduria Dolce Naturale",
+      "slug": "primitivo-di-manduria-dolce-naturale",
+      "description": "Vino dolce da meditazione ottenuto da uve appassite sulla pianta; intenso, caldo e avvolgente.",
+      "image": "/images/docg/primitivo-di-manduria-dolce-naturale.jpg",
+      "quickInfo": {
+        "vitigno": "Primitivo",
+        "colore": "Rosso dolce intenso",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/primitivo-manduria-dolce.pdf"
+      }
+    }
+  ]
+},
+ {
+  "region": "Sardegna",
+  "docg": [
+    {
+      "name": "Vermentino di Gallura",
+      "slug": "vermentino-di-gallura",
+      "description": "L'unica DOCG della Sardegna, un bianco marino e minerale che esprime tutta la forza dei suoli granitici della Gallura.",
+      "image": "/images/docg/vermentino-di-gallura.jpg",
+      "quickInfo": {
+        "vitigno": "Vermentino",
+        "colore": "Giallo paglierino con riflessi dorati",
+        "invecchiamento": "Non previsto min. (6 mesi per il Superiore)",
+        "disciplinare": "/pdf/disciplinari/vermentino-di-gallura.pdf"
+      }
+    }
+  ]
+},
+{
+  "region": "Sicilia",
+  "docg": [
+    {
+      "name": "Cerasuolo di Vittoria",
+      "slug": "cerasuolo-di-vittoria",
+      "description": "L'unica DOCG siciliana, un rosso unico che unisce la forza del Nero d'Avola all'eleganza aromatica del Frappato.",
+      "image": "/images/docg/cerasuolo-di-vittoria.jpg",
+      "quickInfo": {
+        "vitigno": "Nero d'Avola e Frappato",
+        "colore": "Rosso ciliegia intenso",
+        "invecchiamento": "8 mesi (18 mesi per il Classico)",
+        "disciplinare": "/pdf/disciplinari/cerasuolo-di-vittoria.pdf"
+      }
+    }
+  ]
+},
+  {
+  "region": "Toscana",
+  "docg": [
+    {
+      "name": "Brunello di Montalcino",
+      "slug": "brunello-di-montalcino",
+      "description": "Uno dei vini più prestigiosi al mondo, espressione pura del Sangiovese Grosso nel comune di Montalcino.",
+      "image": "/images/docg/brunello-di-montalcino.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (Grosso)",
+        "colore": "Rosso rubino intenso tendente al granato",
+        "invecchiamento": "5 anni (2 in botte)",
+        "disciplinare": "/pdf/disciplinari/brunello-montalcino.pdf"
+      }
+    },
+    {
+      "name": "Carmignano",
+      "slug": "carmignano",
+      "description": "Storico blend toscano che unisce Sangiovese e Cabernet, amato fin dal tempo dei Medici.",
+      "image": "/images/docg/carmignano.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese e Cabernet Sauvignon/Franc",
+        "colore": "Rosso rubino vivace",
+        "invecchiamento": "10-24 mesi",
+        "disciplinare": "/pdf/disciplinari/carmignano.pdf"
+      }
+    },
+    {
+      "name": "Chianti",
+      "slug": "chianti",
+      "description": "L'anima della Toscana in una bottiglia, un vino versatile prodotto in vaste aree della regione.",
+      "image": "/images/docg/chianti.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (min 70%)",
+        "colore": "Rosso rubino",
+        "invecchiamento": "6-12 mesi",
+        "disciplinare": "/pdf/disciplinari/chianti.pdf"
+      }
+    },
+    {
+      "name": "Chianti Classico",
+      "slug": "chianti-classico",
+      "description": "L'eccellenza del Gallo Nero, prodotto esclusivamente nella zona storica tra Firenze e Siena.",
+      "image": "/images/docg/chianti-classico.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (min 80%)",
+        "colore": "Rosso rubino",
+        "invecchiamento": "12-24 mesi",
+        "disciplinare": "/pdf/disciplinari/chianti-classico.pdf"
+      }
+    },
+    {
+      "name": "Elba Aleatico Passito",
+      "slug": "elba-aleatico-passito",
+      "description": "Un nettare dolce e profumatissimo ottenuto dall'appassimento delle uve Aleatico sull'isola d'Elba.",
+      "image": "/images/docg/elba-aleatico-passito.jpg",
+      "quickInfo": {
+        "vitigno": "Aleatico",
+        "colore": "Rosso rubino molto carico",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/elba-aleatico.pdf"
+      }
+    },
+    {
+      "name": "Montecucco Sangiovese",
+      "slug": "montecucco-sangiovese",
+      "description": "Un rosso di carattere proveniente dalle terre vulcaniche alle pendici del Monte Amiata.",
+      "image": "/images/docg/montecucco-sangiovese.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (min 90%)",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "12-24 mesi",
+        "disciplinare": "/pdf/disciplinari/montecucco.pdf"
+      }
+    },
+    {
+      "name": "Morellino di Scansano",
+      "slug": "morellino-di-scansano",
+      "description": "Il Sangiovese della Maremma: fresco, sapido e influenzato dalle brezze marine.",
+      "image": "/images/docg/morellino-di-scansano.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (Morellino)",
+        "colore": "Rosso rubino",
+        "invecchiamento": "6-24 mesi",
+        "disciplinare": "/pdf/disciplinari/morellino.pdf"
+      }
+    },
+    {
+      "name": "Suvereto",
+      "slug": "suvereto",
+      "description": "Rosso potente e moderno della costa toscana, spesso basato sui grandi vitigni internazionali.",
+      "image": "/images/docg/suvereto.jpg",
+      "quickInfo": {
+        "vitigno": "Cabernet, Merlot o Sangiovese",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "19-24 mesi",
+        "disciplinare": "/pdf/disciplinari/suvereto.pdf"
+      }
+    },
+    {
+      "name": "Val di Cornia Rosso della Val di Cornia",
+      "slug": "val-di-cornia-rosso-della-val-di-cornia",
+      "description": "Un vino strutturato che riflette il terroir metallifero e costiero della provincia di Livorno.",
+      "image": "/images/docg/val-di-cornia-rosso.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese, Cabernet e Merlot",
+        "colore": "Rosso rubino",
+        "invecchiamento": "18-24 mesi",
+        "disciplinare": "/pdf/disciplinari/val-di-cornia.pdf"
+      }
+    },
+    {
+      "name": "Vernaccia di San Gimignano",
+      "slug": "vernaccia-di-san-gimignano",
+      "description": "L'unico grande bianco toscano a potersi fregiare della DOCG, famoso fin dal Medioevo.",
+      "image": "/images/docg/vernaccia-san-gimignano.jpg",
+      "quickInfo": {
+        "vitigno": "Vernaccia di San Gimignano",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "Non previsto (11 mesi per Riserva)",
+        "disciplinare": "/pdf/disciplinari/vernaccia.pdf"
+      }
+    },
+    {
+      "name": "Vino Nobile di Montepulciano",
+      "slug": "vino-nobile-di-montepulciano",
+      "description": "Storico rosso toscano, ammirato per il suo equilibrio tra potenza ed eleganza aristocratica.",
+      "image": "/images/docg/vino-nobile-montepulciano.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese (Prugnolo Gentile)",
+        "colore": "Rosso granato",
+        "invecchiamento": "24 mesi",
+        "disciplinare": "/pdf/disciplinari/vino-nobile.pdf"
+      }
+    }
+  ]
+},
+{
+  "region": "Umbria",
+  "docg": [
+    {
+      "name": "Montefalco Sagrantino",
+      "slug": "montefalco-sagrantino",
+      "description": "Uno dei vini più tannici e longevi al mondo, prodotto esclusivamente con uva Sagrantino nel cuore dell'Umbria.",
+      "image": "/images/docg/montefalco-sagrantino.jpg",
+      "quickInfo": {
+        "vitigno": "Sagrantino",
+        "colore": "Rosso rubino intenso, quasi impenetrabile",
+        "invecchiamento": "37 mesi (di cui 12 in legno)",
+        "disciplinare": "/pdf/disciplinari/montefalco-sagrantino.pdf"
+      }
+    },
+    {
+      "name": "Torgiano Rosso Riserva",
+      "slug": "torgiano-rosso-riserva",
+      "description": "Vino elegante e armonico, prima DOCG umbra, noto per la sua straordinaria capacità di invecchiamento.",
+      "image": "/images/docg/torgiano-rosso-riserva.jpg",
+      "quickInfo": {
+        "vitigno": "Sangiovese e Canaiolo",
+        "colore": "Rosso rubino brillante",
+        "invecchiamento": "36 mesi (di cui 6 in bottiglia)",
+        "disciplinare": "/pdf/disciplinari/torgiano-rosso.pdf"
+      }
+    }
+  ]
+},
+  {
+  "region": "Veneto",
+  "docg": [
+    {
+      "name": "Amarone della Valpolicella",
+      "slug": "amarone-della-valpolicella",
+      "description": "Un gigante dell'enologia italiana, ottenuto dall'appassimento delle uve; potente, strutturato e maestoso.",
+      "image": "/images/docg/amarone-della-valpolicella.jpg",
+      "quickInfo": {
+        "vitigno": "Corvina, Corvinone, Rondinella",
+        "colore": "Rosso granato intenso",
+        "invecchiamento": "24 mesi (4 anni per Riserva)",
+        "disciplinare": "/pdf/disciplinari/amarone-valpolicella.pdf"
+      }
+    },
+    {
+      "name": "Asolo Prosecco",
+      "slug": "asolo-prosecco",
+      "description": "Prosecco Superiore dai Colli Asolani, noto per la sua sapidità e le eleganti note floreali.",
+      "image": "/images/docg/asolo-prosecco.jpg",
+      "quickInfo": {
+        "vitigno": "Glera",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/asolo-prosecco.pdf"
+      }
+    },
+    {
+      "name": "Bagnoli Friularo Friularo di Bagnoli",
+      "slug": "bagnoli-friularo-friularo-di-bagnoli",
+      "description": "Vino rosso potente ottenuto dal vitigno Raboso, caratterizzato da un'acidità vibrante.",
+      "image": "/images/docg/bagnoli-friularo.jpg",
+      "quickInfo": {
+        "vitigno": "Raboso Piave",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "12-24 mesi",
+        "disciplinare": "/pdf/disciplinari/bagnoli-friularo.pdf"
+      }
+    },
+    {
+      "name": "Bardolino Superiore",
+      "slug": "bardolino-superiore",
+      "description": "Vino rosso leggero ed elegante delle sponde del Lago di Garda, nella sua versione più strutturata.",
+      "image": "/images/docg/bardolino-superiore.jpg",
+      "quickInfo": {
+        "vitigno": "Corvina, Rondinella",
+        "colore": "Rosso rubino chiaro",
+        "invecchiamento": "12 mesi",
+        "disciplinare": "/pdf/disciplinari/bardolino-superiore.pdf"
+      }
+    },
+    {
+      "name": "Colli di Conegliano",
+      "slug": "colli-di-conegliano",
+      "description": "Denominazione che include bianchi e rossi di pregio, oltre al celebre passito Refrontolo.",
+      "image": "/images/docg/colli-conegliano.jpg",
+      "quickInfo": {
+        "vitigno": "Manzoni Bianco / Marzemino / Cabernet",
+        "colore": "Paglierino o Rosso",
+        "invecchiamento": "6-24 mesi",
+        "disciplinare": "/pdf/disciplinari/colli-conegliano.pdf"
+      }
+    },
+    {
+      "name": "Colli Euganei Fior d’Arancio",
+      "slug": "colli-euganei-fior-darancio",
+      "description": "Vino aromatico per eccellenza, con inconfondibili sentori di zagara e agrumi.",
+      "image": "/images/docg/colli-euganei-fior-darancio.jpg",
+      "quickInfo": {
+        "vitigno": "Moscato Giallo",
+        "colore": "Giallo paglierino / dorato",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/fior-darancio.pdf"
+      }
+    },
+    {
+      "name": "Conegliano Valdobbiadene Prosecco",
+      "slug": "conegliano-valdobbiadene-prosecco",
+      "description": "Il cuore storico del Prosecco DOCG, prodotto sulle ripide colline eroiche trevigiane.",
+      "image": "/images/docg/conegliano-valdobbiadene-prosecco.jpg",
+      "quickInfo": {
+        "vitigno": "Glera",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/conegliano-valdobbiadene.pdf"
+      }
+    },
+    {
+      "name": "Montello Rosso",
+      "slug": "montello-rosso",
+      "description": "Taglio bordolese di grande eleganza prodotto nell'area collinare del Montello.",
+      "image": "/images/docg/montello-rosso.jpg",
+      "quickInfo": {
+        "vitigno": "Cabernet e Merlot",
+        "colore": "Rosso rubino tendente al granato",
+        "invecchiamento": "18-24 mesi",
+        "disciplinare": "/pdf/disciplinari/montello-rosso.pdf"
+      }
+    },
+    {
+      "name": "Piave Malanotte",
+      "slug": "piave-malanotte",
+      "description": "La massima espressione del Raboso Piave, parzialmente appassito per domarne l'acidità.",
+      "image": "/images/docg/piave-malanotte.jpg",
+      "quickInfo": {
+        "vitigno": "Raboso Piave",
+        "colore": "Rosso rubino intenso",
+        "invecchiamento": "36 mesi",
+        "disciplinare": "/pdf/disciplinari/piave-malanotte.pdf"
+      }
+    },
+    {
+      "name": "Recioto della Valpolicella",
+      "slug": "recioto-della-valpolicella",
+      "description": "L'antenato dell'Amarone: un vino rosso dolce, vellutato e intenso da uve appassite.",
+      "image": "/images/docg/recioto-della-valpolicella.jpg",
+      "quickInfo": {
+        "vitigno": "Corvina, Corvinone, Rondinella",
+        "colore": "Rosso rubino carico",
+        "invecchiamento": "Variabile (min. 12 mesi)",
+        "disciplinare": "/pdf/disciplinari/recioto-valpolicella.pdf"
+      }
+    },
+    {
+      "name": "Recioto di Gambellara",
+      "slug": "recioto-di-gambellara",
+      "description": "Elegante vino da dessert ottenuto da uve Garganega coltivate su suoli vulcanici.",
+      "image": "/images/docg/recioto-di-gambellara.jpg",
+      "quickInfo": {
+        "vitigno": "Garganega",
+        "colore": "Giallo dorato",
+        "invecchiamento": "Non previsto min.",
+        "disciplinare": "/pdf/disciplinari/recioto-gambellara.pdf"
+      }
+    },
+    {
+      "name": "Recioto di Soave",
+      "slug": "recioto-di-soave",
+      "description": "Il primo vino veneto a ricevere la DOCG; un passito bianco solare e armonico.",
+      "image": "/images/docg/recioto-di-soave.jpg",
+      "quickInfo": {
+        "vitigno": "Garganega",
+        "colore": "Giallo dorato intenso",
+        "invecchiamento": "10 mesi",
+        "disciplinare": "/pdf/disciplinari/recioto-soave.pdf"
+      }
+    },
+    {
+      "name": "Soave Superiore",
+      "slug": "soave-superiore",
+      "description": "Bianco di grande finezza e longevità, simbolo dell'enologia veronese nel mondo.",
+      "image": "/images/docg/soave-superiore.jpg",
+      "quickInfo": {
+        "vitigno": "Garganega",
+        "colore": "Giallo paglierino con riflessi verdi",
+        "invecchiamento": "12-24 mesi",
+        "disciplinare": "/pdf/disciplinari/soave-superiore.pdf"
+      }
+    },
+    {
+      "name": "Lison",
+      "slug": "lison",
+      "description": "Vino bianco di confine tra Veneto e Friuli, caratterizzato da note di mandorla amara.",
+      "image": "/images/docg/lison.jpg",
+      "quickInfo": {
+        "vitigno": "Friulano (Tai)",
+        "colore": "Giallo paglierino",
+        "invecchiamento": "5 mesi",
+        "disciplinare": "/pdf/disciplinari/lison.pdf"
+      }
+    }
+  ]
+}
 ]

@@ -1,0 +1,118 @@
+.docg-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Header */
+.docg-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.docg-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--background-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+
+.docg-subtitle {
+  font-family: 'Merriweather', serif;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Regions */
+.docg-regions {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.docg-region {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  border-left: 5px solid var(--background-primary);
+  box-shadow: 0 2px 12px var(--card-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.docg-region:hover {
+  box-shadow: 0 6px 24px var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.docg-region-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--background-primary);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* List */
+.docg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+/* Link chip */
+.docg-link {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background-color: var(--background-secondary);
+  color: var(--background-primary);
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1.5px solid var(--border-light);
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 4px var(--card-shadow);
+}
+
+.docg-link:hover {
+  background-color: var(--background-primary);
+  color: var(--color-primary);
+  border-color: var(--background-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .docg-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .docg-title {
+    font-size: 2rem;
+  }
+
+  .docg-region {
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+  }
+
+  .docg-region-title {
+    font-size: 1.2rem;
+  }
+
+  .docg-link {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.8rem;
+  }
+}
