@@ -25,7 +25,7 @@ export const metadata = {
     siteName: "WineWorld",
     images: [
       {
-        url: "https://www.wineworldweb.it/homeWine.png",
+        url: "https://www.wineworldweb.it/homeWine.jpg",
         width: 800,
         height: 600,
         alt: "WineWorld Logo",
@@ -38,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "WineWorld | Esplora il mondo del vino",
     description: "Esplora il mondo del vino con guide su DOCG, vitigni e territori. Approfondisci la vinificazione e scopri WeWino, il tuo sommelier digitale personale.",
-    images: ["https://www.wineworldweb.it/homeWine.png"],
+    images: ["https://www.wineworldweb.it/homeWine.jpg"],
   },
 };
 
