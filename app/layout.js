@@ -14,9 +14,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "WineWorld | Guide vino, DOCG, vitigni e sommelier digitale",
-  description: "Guide complete su vini, DOCG, vitigni e territori. Scopri tecniche di vinificazione e WeWino, il sommelier digitale per scegliere sempre il vino giusto.",
-  metadataBase: new URL("https://www.wineworldweb.it"), 
+  title: "WineWorld | Esplora il mondo del vino",
+  description: "Esplora il mondo del vino con guide su DOCG, vitigni e territori. Approfondisci la vinificazione e scopri WeWino, il tuo sommelier digitale personale.",
+  metadataBase: new URL("https://www.wineworldweb.it"), // <--- evita localhost
+
+  openGraph: {
+    title: "WineWorld | Esplora il mondo del vino",
+    description: "Esplora il mondo del vino con guide su DOCG, vitigni e territori. Approfondisci la vinificazione e scopri WeWino, il tuo sommelier digitale personale.",
+    url: "https://www.wineworldweb.it",
+    siteName: "WineWorld",
+    images: [
+      {
+        url: "https://www.wineworldweb.it/wewino.png",
+        width: 800,
+        height: 600,
+        alt: "WineWorld Logo",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "WineWorld | Esplora il mondo del vino",
+    description: "Esplora il mondo del vino con guide su DOCG, vitigni e territori. Approfondisci la vinificazione e scopri WeWino, il tuo sommelier digitale personale.",
+    images: ["https://www.wineworldweb.it/wewino.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
