@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "WineWorld",
-  description: "Scopri il meraviglioso mondo del vino con WineWorld.",
- metadataBase: new URL("https://www.wineworldweb.it"),
+  title: "WineWorld | Guide vino, DOCG, vitigni e sommelier digitale",
+  description: "Guide complete su vini, DOCG, vitigni e territori. Scopri tecniche di vinificazione e WeWino, il sommelier digitale per scegliere sempre il vino giusto.",
+  metadataBase: new URL("https://www.wineworldweb.it"), 
 };
 
 export default function RootLayout({ children }) {

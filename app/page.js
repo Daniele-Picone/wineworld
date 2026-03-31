@@ -6,9 +6,9 @@ import CardsSection from "./components/organism/CardsSection";
 import WewinoSection from "./components/organism/WewinoSection";
 
 export const metadata = {
-  title: "WineWorld",
-  description: "Scopri il meraviglioso mondo del vino con WineWorld.",
-   metadataBase: new URL("https://www.wineworldweb.it"),
+  title: "WineWorld | Esplora il mondo del vino",
+  description:
+    "Esplora il mondo del vino con guide su DOCG, vitigni e territori. Approfondisci la vinificazione e scopri WeWino, il tuo sommelier digitale personale.",
 };
 
 
