@@ -1,10 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
-import docgData from "@/data/docg_list.json"
+import docgData from "@/data/docg_list.json";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
+
+// Forza il server a NON cachare MAI la sitemap
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 async function getArticles() {
   const { data, error } = await supabase
@@ -12,17 +16,13 @@ async function getArticles() {
     .select("slug, created_at, category")
     .order("created_at", { ascending: false });
 
-  if (error) {
-    console.error("Sitemap: errore recupero articoli", error);
-    return [];
-  }
+  if (error) return [];
   return data;
 }
 
 export default async function sitemap() {
   const baseUrl = "https://www.wineworldweb.it";
 
-  // Pagine statiche
   const staticPages = [
     { url: baseUrl,                      lastModified: new Date(), changeFrequency: "weekly",  priority: 1.0 },
     { url: `${baseUrl}/blog`,            lastModified: new Date(), changeFrequency: "daily",   priority: 0.9 },
@@ -32,34 +32,34 @@ export default async function sitemap() {
     { url: `${baseUrl}/privacy`,         lastModified: new Date(), changeFrequency: "yearly",  priority: 0.3 },
   ];
 
-  // Articoli da Supabase
-  let articleUrls = [];
-  try {
-    const articles = await getArticles();
-    articleUrls = articles.map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
+  const articles = await getArticles();
+  const articleUrls = articles.map((post) => {
+    let cat = (post.category || "blog").toLowerCase().trim();
+    
+    // CORREZIONE AGGRESSIVA: se contiene "wine" (singolare o plurale), usa "wine"
+    if (cat.includes("wine") && cat !== "wineworld") {
+      cat = "wine";
+    }
+
+    return {
+      url: `${baseUrl}/${cat}/${post.slug}`,
       lastModified: new Date(post.created_at),
       changeFrequency: "monthly",
       priority: 0.7,
-    }));
-  } catch (e) {
-    console.error("Sitemap: errore articoli", e);
-  }
+    };
+  });
 
-  // DOCG da file locale
- let docgUrls = [];
-try {
-  docgUrls = docgData.flatMap((region) =>
-    region.docg.map((docg) => ({
-      url: `${baseUrl}/docg/${docg.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }))
-  );
-} catch (e) {
-  console.error("Sitemap: errore DOCG", e);
-}
+  let docgUrls = [];
+  try {
+    docgUrls = docgData.flatMap((region) =>
+      region.docg.map((docg) => ({
+        url: `${baseUrl}/docg/${docg.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.8,
+      }))
+    );
+  } catch (e) {}
 
   return [...staticPages, ...articleUrls, ...docgUrls];
 }
