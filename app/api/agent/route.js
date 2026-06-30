@@ -6,17 +6,27 @@ const supabaseServer = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, x-agent-secret",
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: corsHeaders });
+}
+
 export async function POST(req) {
   try {
     const secret = req.headers.get("x-agent-secret");
     if (secret !== process.env.AGENT_SECRET_TOKEN) {
-      return NextResponse.json({ message: "Non autorizzato" }, { status: 401 });
+      return NextResponse.json({ message: "Non autorizzato" }, { status: 401, headers: corsHeaders });
     }
 
     const { title, content, category, meta_description } = await req.json();
 
     if (!title || !content || !category) {
-      return NextResponse.json({ message: "Campi obbligatori mancanti" }, { status: 400 });
+      return NextResponse.json({ message: "Campi obbligatori mancanti" }, { status: 400, headers: corsHeaders });
     }
 
     const slug = title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -34,8 +44,8 @@ export async function POST(req) {
 
     if (error) throw error;
 
-    return NextResponse.json({ message: "✅ Post pubblicato!" });
+    return NextResponse.json({ message: "Post pubblicato" }, { headers: corsHeaders });
   } catch (err) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
+    return NextResponse.json({ message: err.message }, { status: 500, headers: corsHeaders });
   }
 }
