@@ -3,6 +3,18 @@ import Link from 'next/link';
 import MainLayout from '../components/layouts/MainLayout';
 import './page.css';
 
+export async function generateMetadata() {
+  return {
+    title: "DOCG Italiane | Denominazioni e regioni vinicole - WineWorld",
+    description: "Scopri tutte le denominazioni DOCG italiane divise per regione: caratteristiche, territori e vitigni delle eccellenze vinicole d'Italia.",
+    openGraph: {
+      title: "DOCG Italiane | Denominazioni e regioni vinicole",
+      description: "Tutte le denominazioni DOCG italiane divise per regione.",
+      images: [{ url: "/docgimage.png" }],
+    },
+  };
+}
+
 export default function DocgPage() {
   return (
     <MainLayout>
